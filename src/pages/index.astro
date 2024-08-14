@@ -1,49 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import MainMenu from '../components/MainMenu.astro';
 ---
 
 <Layout title="Rindögården">
-	<main>
-		<h1 class="text-gradient leading-normal text-[clamp(1rem,10cqw,6rem)] font-bold text-center mb-4">Rindögården</h1>
-		<p class="rounded-lg p-6 mb-8 border border-accent-300/25 bg-gradient-to-b from-accent-700/65 to-accent-700/35 text-center">
-			Vi är precis i <strong class="text-accent-300">startgroparna</strong>. Mer info kommer i augusti!
-		</p>
-		<ul role="list" class="link-card-grid gap-8 hidden">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+	<nav class="sticky top-0 mb-4 subgrid">
+		<MainMenu />
+	</nav>
+
+	<header class="flex flex-col">
+		<h1 class="text-white font-bangers leading-normal text-[clamp(1rem,16cqw,6rem)] text-center mb-4">Rindögården</h1>
+	</header>
+	<main class="p-4 text-white text-xl/7 m-auto w-[800px] max-w-[calc(100%-2rem)] mt-4">
 	</main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
