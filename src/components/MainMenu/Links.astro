@@ -9,9 +9,9 @@ const links = [
 <ul class="flex flex-col items-stretch gap-2 justify-end sm:flex-row text-2xl">
   {links.map((link) =>
     <li class="flex font-semibold">
-      <a href={link.href} class="relative text-white px-4 py-2 w-full">
+      <a href={link.href} class="relative flex text-white px-4 py-2 w-full items-center justify-center">
         <span class="absolute inset-0 transform sm:-skew-x-12 sm:block" class:list={link.color}></span>
-        <span class="text-white relative" class:list={link.color}>{link.text}</span>
+        <span class="text-white relative inline-flex text-center" class:list={link.color}>{link.text}</span>
       </a>
     </li>
   )}

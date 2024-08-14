@@ -4,12 +4,17 @@ import MainMenu from '../components/MainMenu.astro';
 ---
 
 <Layout title="Rindögården">
-	<nav class="sticky top-0 mb-4 subgrid">
+	<nav class="sticky top-0 subgrid bg-christalle">
 		<MainMenu />
 	</nav>
 
-	<header class="flex flex-col">
-		<h1 class="text-white font-bangers leading-normal text-[clamp(1rem,16cqw,6rem)] text-center mb-4">Rindögården</h1>
+	<header class="flex flex-col min-h-[40dvh] pt-8 bg-christalle subgrid border-b-2 border-christalle shadow-md shadow-christalle-400">
+		<div class="col-[content] flex flex-col text-white">
+			<h1 class="text-white font-bangers leading-normal text-[clamp(1rem,16cqw,6rem)] text-center mb-4 drop-shadow-[0_0px_3px_rgba(0,0,0,1.0)]">Rindögården</h1>
+			<p class="text-center">
+				Vi är precis i <strong>startgroparna</strong>. Håll utkik, det kommer mer här snart!
+			</p>
+		</div>
 	</header>
 	<main class="p-4 text-white text-xl/7 m-auto w-[800px] max-w-[calc(100%-2rem)] mt-4">
 	</main>
