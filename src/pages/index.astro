@@ -1,6 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MainMenu from '../components/MainMenu.astro';
+import Event from '../components/Event.astro';
+import type { Props as EventProps } from '../components/Event.astro';
+
+const events: [EventProps] = [
+	{
+		title: 'Höststart',
+		date: new Date('2024-08-30'),
+		time: '18:00 - 21:00',
+	}
+]
 ---
 
 <Layout title="Rindögården">
@@ -8,7 +18,7 @@ import MainMenu from '../components/MainMenu.astro';
 		<MainMenu />
 	</nav>
 
-	<header class="flex flex-col min-h-[40dvh] pt-8 bg-christalle subgrid border-b-2 border-christalle shadow-md shadow-christalle-400">
+	<header class="flex flex-col bg-christalle subgrid border-b-2 border-christalle">
 		<div class="col-[content] flex flex-col text-white">
 			<h1 class="text-white font-bangers leading-normal text-[clamp(1rem,16cqw,6rem)] text-center mb-4 drop-shadow-[0_0px_3px_rgba(0,0,0,1.0)]">Rindögården</h1>
 			<p class="text-center">
@@ -16,7 +26,12 @@ import MainMenu from '../components/MainMenu.astro';
 			</p>
 		</div>
 	</header>
-	<main class="p-4 text-white text-xl/7 m-auto w-[800px] max-w-[calc(100%-2rem)] mt-4">
+	<main class="p-4 text-white text-xl/7 m-auto col-[content] w-[800px] max-w-[calc(100%-2rem)] mt-4">
+		<ol>
+			{events.map((event) => (
+				<li><Event {...event} /></li>
+			))}
+		</ol>
 	</main>
 </Layout>
 
