@@ -1,20 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MainMenu from '../components/MainMenu.astro';
-import Event from '../components/Event.astro';
-import type { Props as EventProps } from '../components/Event.astro';
 
-const events: [EventProps] = [
-	{
-		title: 'Höststart',
-		date: new Date('2024-08-30'),
-		time: '18:00 - 21:00',
-	}
-]
+import { getCollection } from 'astro:content';
+
+const events = await getCollection('events').then((events) =>
+	Promise.all(events.map(async (event) => {
+		const date = new Date(event.slug)
+		const { Content } = await event.render()
+		return { ...event, date, Content }
+	}))
+).then((events) => events.sort((a, b) => Date.parse(a.slug) - Date.parse(b.slug)));
 ---
 
 <Layout title="Rindögården">
-	<nav class="sticky top-0 subgrid bg-christalle">
+	<nav class="sticky top-0 subgrid bg-christalle z-10">
 		<MainMenu />
 	</nav>
 
@@ -27,9 +27,22 @@ const events: [EventProps] = [
 		</div>
 	</header>
 	<main class="p-4 text-white text-xl/7 m-auto col-[content] w-[800px] max-w-[calc(100%-2rem)] mt-4">
-		<ol>
-			{events.map((event) => (
-				<li><Event {...event} /></li>
+		<ol class="flex flex-col gap-4">
+			{events.map(({ Content, data, date }) => (
+				<li>
+					<article class="border-christalle bg-picton-blue rounded-sm px-4 py-4 flex flex-col gap-2 shadow-md">
+						<header>
+							<h1 class="text-4xl flex flex-wrap gap-x-2 justify-between items-end border-b-4 text-white border-current font-bangers">
+								<span>{data.title}</span>
+								<time datetime={date.toISOString()} class="text-xl">
+									{date.toLocaleDateString('sv-SE', { dateStyle: "long", timeStyle: undefined })}, kl {data.time}
+								</time>
+							</h1>
+						</header>
+
+						<Content />
+					</article>
+				</li>
 			))}
 		</ol>
 	</main>
