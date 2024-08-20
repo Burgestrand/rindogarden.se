@@ -16,11 +16,8 @@ const contacts = [
 
 const adultsToSentence = (event: Event) => {
   const missing = Math.max(2 - event.data.adults.length, 0)
-  const adults = event.data.adults
-  for(let i = 0; i < missing; i++) {
-    adults.push("🙋")
-  }
-  return adults.join(", ")
+  const missingAdults = Array.from({ length: missing }).fill("🙋")
+  return [...event.data.adults, ...missingAdults].join(", ")
 }
 ---
 
@@ -54,20 +51,21 @@ const adultsToSentence = (event: Event) => {
         Kan du tänka dig att ställa upp? Underbart! Hör av dig till någon av oss i planeringsgruppen så lägger vi upp dig på schemat.
       </p>
 
-      <table class="w-full my-6 font-mono text-sm">
+      <table class="w-full my-6 font-mono text-sm mb-12">
         <thead>
           <tr class="text-left border-b-2">
             <th class="px-2">Datum & Tid</th>
-            <th class="px-2">Tema</th>
-            <th class="px-2">Vuxna</th>
+            <th class="px-2">Tema & Vuxna</th>
           </tr>
         </thead>
         <tbody>
           {events.map((event) => (
-            <tr class="even:bg-christalle-800">
+            <tr class="bg-red-600/40 data-[sufficient]:even:bg-christalle-800 data-[sufficient]:bg-transparent" data-sufficient={event.data.adults.length >= 2 ? "sufficient" : null}>
               <td class="p-2">{event.date} kl.&nbsp;{eventsStore.time.tiny(event)}</td>
-              <td class="p-2">{event.data.title ?? "(inget tema ännu)"}</td>
-              <td class="p-2">{adultsToSentence(event)}</td>
+              <td class="p-2 flex flex-col">
+                <strong>{event.data.title}</strong>
+                <span>{adultsToSentence(event)}</span>
+              </td>
             </tr>
           ))}
         </tbody>
