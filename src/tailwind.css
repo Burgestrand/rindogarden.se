@@ -66,4 +66,16 @@ details > summary.list-none::marker {
     grid-column: full;
     grid-template-columns: subgrid;
   }
+
+  .btn {
+    @apply rounded-md block px-4 py-2 text-2xl text-center shadow-lg border-2 border-black/20 font-bangers tracking-wider;
+  }
+
+  .btn-primary {
+    @apply bg-picton-blue;
+  }
+
+  .btn-disabled {
+    @apply bg-gray-300 text-gray-500 cursor-not-allowed;
+  }
 }
