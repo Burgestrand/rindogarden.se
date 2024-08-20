@@ -60,7 +60,7 @@ const adultsToSentence = (event: Event) => {
         </thead>
         <tbody>
           {events.map((event) => (
-            <tr class="bg-red-600/40 data-[sufficient]:even:bg-christalle-800 data-[sufficient]:bg-transparent" data-sufficient={event.data.adults.length >= 2 ? "sufficient" : null}>
+            <tr class="data-[uncertain]:bg-red-600/40 even:bg-christalle-800 bg-transparent" data-uncertain={event.missingAdults > 0}>
               <td class="p-2">{event.date} kl.&nbsp;{eventsStore.time.tiny(event)}</td>
               <td class="p-2 flex flex-col">
                 <strong>{event.data.title}</strong>

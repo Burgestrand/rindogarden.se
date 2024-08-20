@@ -10,6 +10,7 @@ export type Event = OriginalEvent & {
   date: Temporal.PlainDate,
   time: Temporal.PlainTime,
   duration: Temporal.Duration,
+  missingAdults: number,
   url: string
 }
 
@@ -17,9 +18,10 @@ async function augment(event: OriginalEvent): Promise<Event> {
   const date = Temporal.PlainDate.from(event.slug)
   const time = Temporal.PlainTime.from(event.data.time)
   const duration = Temporal.Duration.from(event.data.duration)
+  const missingAdults = Math.max(2 - event.data.adults.length, 0)
   const url = `/events/${event.slug}`
   const copy = Object.create(event)
-  return Object.assign(copy, { date, time, duration, url }) as Event
+  return Object.assign(copy, { date, time, duration, url, missingAdults }) as Event
 }
 
 function compare(a: Event, b: Event) {
