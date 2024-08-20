@@ -4,6 +4,9 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+		fontFamily: {
+			sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+		},
 		extend: {
 			fontFamily: {
 				'bangers': ['Bangers', ...defaultTheme.fontFamily.sans],
