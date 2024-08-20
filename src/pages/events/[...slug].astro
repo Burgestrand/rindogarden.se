@@ -25,9 +25,7 @@ const title = (event.data.title ?? "Händer på gården") + " " + events.date.sh
 ---
 <Layout title={title}>
   <header>
-    <Headline class="leading-none pt-6">
-      {event.data.title ?? "Händer på gården"}
-    </Headline>
+    <Headline class="leading-none pt-6" text={event.data.title ?? "Händer på gården"} />
     <p class="text-center">
       <Time event={event} />
     </p>
