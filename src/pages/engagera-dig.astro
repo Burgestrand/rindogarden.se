@@ -1,0 +1,77 @@
+---
+import type { Event } from '../events'
+import Layout from '../layouts/Layout.astro';
+import Headline from '../components/headings/Headline.astro'
+import H2 from '../components/headings/H2.astro'
+import * as eventsStore from '../events'
+
+const title = "Engagera dig"
+const events = await eventsStore.list()
+
+const contacts = [
+  { name: "Kim Burgestrand", how: "kim@burgestrand.se" },
+  { name: "Anna-Lena" },
+  { name: "Sandra B" },
+]
+
+const adultsToSentence = (event: Event) => {
+  const missing = Math.max(2 - event.data.adults.length, 0)
+  const adults = event.data.adults
+  for(let i = 0; i < missing; i++) {
+    adults.push("🙋")
+  }
+  return adults.join(", ")
+}
+---
+
+<Layout title={title}>
+  <header>
+    <Headline class="leading-none pt-6">{title}</Headline>
+  </header>
+  <main class="flex flex-col gap-y-8">
+    <section class="flex flex-col gap-y-2">
+      <H2>Kontakta oss</H2>
+      <p>
+        Vi är ett litet gäng vuxna som tillsammans sköter logistik och planering för Rindögården. Vi är alltid intresserade av att få in nya idéer och tankar, så tveka inte att höra av dig om du har något på hjärtat!
+      </p>
+      <ul class="flex flex-row flex-wrap gap-y-2 gap-x-4">
+        {contacts.map(contact => (
+          <li class="min-w-[max-content] flex-1 border rounded-md px-4 py-2">
+            <h3 class="text-xl font-bangers tracking-widest">{contact.name}</h3>
+            <p class="">{contact.how}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-y-2">
+      <H2>Kvällar</H2>
+      <p>
+        Varje kväll behöver bemannas av minst två vuxna för att vi ska kunna hålla öppet. Nedan ser du vilka kvällar som är planerade och vilka som redan är bemannade.
+      </p>
+
+      <p>
+        Kan du tänka dig att ställa upp? Underbart! Hör av dig till någon av oss i planeringsgruppen så lägger vi upp dig på schemat.
+      </p>
+
+      <table class="w-full my-6 font-mono text-sm">
+        <thead>
+          <tr class="text-left border-b-2">
+            <th class="px-2">Datum & Tid</th>
+            <th class="px-2">Tema</th>
+            <th class="px-2">Vuxna</th>
+          </tr>
+        </thead>
+        <tbody>
+          {events.map((event) => (
+            <tr class="even:bg-christalle-800">
+              <td class="p-2">{event.date}, kl. {eventsStore.time.tiny(event)}</td>
+              <td class="p-2">{event.data.title ?? "(inget tema ännu)"}</td>
+              <td class="p-2">{adultsToSentence(event)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</Layout>

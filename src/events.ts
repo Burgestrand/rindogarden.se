@@ -48,5 +48,10 @@ export const time = {
     const from = event.time
     const to = from.add(event.duration)
     return `${from.toLocaleString(locale, { timeStyle: "short" })} - ${to.toLocaleString(locale, { timeStyle: "short" })}`
+  },
+  tiny: (event: Event) => {
+    const from = event.time
+    const to = from.add(event.duration)
+    return `${from.hour}-${to.hour}`
   }
 }
