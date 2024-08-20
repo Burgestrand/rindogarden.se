@@ -21,11 +21,11 @@ import Layout from '../../layouts/Layout.astro';
 const { event, prev, next } = Astro.props
 const { Content } = await event.render()
 
-const title = (event.data.title ?? "Händer på gården") + " " + events.date.short(event)
+const title = (event.data.title) + " " + events.date.short(event)
 ---
 <Layout title={title}>
   <header>
-    <Headline class="leading-none pt-6" text={event.data.title ?? "Händer på gården"} />
+    <Headline class="leading-none pt-6" text={event.data.title} />
     <p class="text-center">
       <Time event={event} />
     </p>
