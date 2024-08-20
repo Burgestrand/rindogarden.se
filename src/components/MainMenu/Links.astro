@@ -6,7 +6,7 @@ const links = [
   { text: "Vanliga frågor", href: "/faq", color: "bg-bright-turquoise" },
 ]
 ---
-<ul class="flex flex-col items-stretch gap-2 justify-end sm:flex-row text-2xl">
+<ul class="flex flex-col items-stretch gap-2 justify-end sm:flex-row text-2xl sm:text-[clamp(1rem,3.2vw,1.5rem)]">
   {links.map((link) =>
     <li class="flex font-semibold">
       <a href={link.href} class="relative flex text-white px-4 py-2 w-full items-center justify-center">

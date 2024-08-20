@@ -3,8 +3,9 @@ import Layout from '../layouts/Layout.astro'
 import Headline from '../components/headings/Headline.astro'
 ---
 <Layout title="Sidan kan inte hittas">
-  <main class="text-center">
-    <Headline>Sidan kan inte hittas</Headline>
+  <Headline text="Sidan kan inte hittas" size={30} class="leading-none" />
+
+  <main class="text-center flex flex-col gap-y-4">
 
     <p>
       Sidan du försöker nå finns inte. Kanske har den flyttats eller tagits bort?

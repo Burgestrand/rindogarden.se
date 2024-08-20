@@ -6,18 +6,15 @@ import Time from '../components/events/Time.astro'
 import * as events from '../events'
 
 const upcoming = await events.list()
+const title = "Rindögården!"
 ---
 
-<Layout title="Rindögården">
+<Layout title={title}>
 	<header class="subgrid">
-		<div class="col-[content] flex flex-col text-white">
-			<Headline>
-				Rindögården!
-			</Headline>
-			<p class="text-center px-4">
-				Vi är precis i <strong>startgroparna</strong>. Håll utkik, det kommer mer här snart!
-			</p>
-		</div>
+		<Headline text={title} class="col-[full]" />
+		<p class="text-center px-4 col-[content]">
+			Vi är precis i <strong>startgroparna</strong>. Håll utkik, det kommer mer här snart!
+		</p>
 	</header>
 
 	<main class="subgrid mb-12">

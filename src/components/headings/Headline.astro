@@ -1,3 +1,16 @@
-<h1 class="text-white font-bangers leading-normal text-[clamp(1rem,16cqw,6rem)] text-center drop-shadow-[0_0px_3px_rgba(0,0,0,1.0)]" class:list={Astro.props.class}>
-  <slot />
+---
+interface Props {
+  text: string
+  size?: number
+  class?: any
+}
+const { text } = Astro.props
+
+let { size } = Astro.props
+size ??= 30 - text.length
+
+const fontSize = `${size}vw`
+---
+<h1 class="text-white font-bangers text-[clamp(1rem,var(--font-size),6rem)] text-center drop-shadow-[0_0px_3px_rgba(0,0,0,1.0)]" class:list={Astro.props.class} style=`--font-size: ${fontSize}`>
+  {text}
 </h1>
