@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Headline from '../components/headings/Headline.astro'
+import H2 from '../components/headings/H2.astro'
 
 const title = "För vuxna"
 ---
@@ -10,7 +11,15 @@ const title = "För vuxna"
     <Headline text={title} size={28} />
   </header>
 
-  <main>
-
+  <main class="flex flex-col gap-y-16">
+    <section class="flex flex-col gap-y-4">
+      <H2>Medgivandeformulär</H2>
+      <p>
+        För att ditt barn ska kunna delta på Rindögården behöver ni och ert barn acceptera de regler och riktlinjer som gäller.
+      </p>
+      <a href="" class="bg-picton-blue bg-slate-300 rounded-md block px-4 py-2 text-2xl text-center shadow-lg border-2 border-black/20 font-bangers tracking-wider">
+        Öppna och fyll i formuläret (kommer snart)
+      </a>
+    </section>
   </main>
 </Layout>
