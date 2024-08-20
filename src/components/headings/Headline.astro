@@ -7,7 +7,7 @@ interface Props {
 const { text } = Astro.props
 
 let { size } = Astro.props
-size ??= 30 - text.length
+size ??= 30 - (text ?? "").length
 
 const fontSize = `${size}vw`
 ---
