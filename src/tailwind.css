@@ -34,8 +34,10 @@ details > summary.list-none::marker {
   .grid-standard > * {
     grid-column: content;
   }
+}
 
-  .grid-standard > .subgrid {
+@layer components {
+  .subgrid {
     display: grid;
     grid-column: full;
     grid-template-columns: subgrid;

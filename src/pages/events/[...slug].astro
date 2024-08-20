@@ -1,0 +1,54 @@
+---
+import Headline from '../../components/headings/Headline.astro'
+import * as events from '../../events'
+import Time from '../../components/events/Time.astro'
+
+export async function getStaticPaths() {
+  const list = await events.list()
+  return list.map((event, index) => {
+    const prev = list[index - 1] ?? null
+    const next = list[index + 1] ?? null
+
+    return ({
+      params: { slug: event.slug },
+      props: { event, next, prev },
+    })
+  })
+}
+
+import Layout from '../../layouts/Layout.astro';
+
+const { event, prev, next } = Astro.props
+const { Content } = await event.render()
+
+const title = (event.data.title ?? "Händer på gården") + " " + events.date.short(event)
+---
+<Layout title={title}>
+  <header>
+    <Headline class="leading-none pt-6">
+      {event.data.title ?? "Händer på gården"}
+    </Headline>
+    <p class="text-center">
+      <Time event={event} />
+    </p>
+  </header>
+  <main>
+    <Content />
+  </main>
+  <footer>
+    <nav>
+      <ul class="grid grid-cols-2 place-items-center">
+        <li>
+          {prev && (
+            <a href={prev.url}>Föregående</a>
+          )}
+        </li>
+        <li>
+          {next && (
+            <a href={next.url}>Nästa</a>
+          )}
+        </li>
+      </ul>
+    </nav>
+  </footer>
+</Layout>

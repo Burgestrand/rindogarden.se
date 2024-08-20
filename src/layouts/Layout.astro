@@ -1,5 +1,6 @@
 ---
 import "../tailwind.css";
+import SiteMenu from '../components/SiteMenu.astro';
 
 interface Props {
 	title: string;
@@ -9,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-christalle">
+<html lang="en" class="bg-christalle-900 text-white">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Rindögården är en fritidsgård på Rindö för
@@ -23,6 +24,8 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="grid-standard gap-y-8">
+		<SiteMenu />
+
 		<slot />
 	</body>
 </html>

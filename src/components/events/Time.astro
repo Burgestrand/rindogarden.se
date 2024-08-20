@@ -1,0 +1,21 @@
+---
+import * as events from '../../events'
+import type { Event } from '../../events'
+
+type Style = keyof typeof styles
+
+interface Props {
+  event: Event,
+  style?: Style
+}
+
+const styles = {
+  full: events.timestamp.full,
+  short: events.date.full,
+}
+
+const { event, style } = Astro.props
+const styleFn = styles[style ?? "full"]
+
+---
+<time datetime={events.timestamp.iso(event)}>{styleFn(event)}</time>
