@@ -28,8 +28,8 @@ const adultsToSentence = (event: Event) => {
   <header>
     <Headline class="leading-none pt-6">{title}</Headline>
   </header>
-  <main class="flex flex-col gap-y-8">
-    <section class="flex flex-col gap-y-2">
+  <main class="flex flex-col gap-y-16">
+    <section class="flex flex-col gap-y-4">
       <H2>Kontakta oss</H2>
       <p>
         Vi är ett litet gäng vuxna som tillsammans sköter logistik och planering för Rindögården. Vi är alltid intresserade av att få in nya idéer och tankar, så tveka inte att höra av dig om du har något på hjärtat!
@@ -44,7 +44,7 @@ const adultsToSentence = (event: Event) => {
       </ul>
     </section>
 
-    <section class="flex flex-col gap-y-2">
+    <section class="flex flex-col gap-y-4">
       <H2>Kvällar</H2>
       <p>
         Varje kväll behöver bemannas av minst två vuxna för att vi ska kunna hålla öppet. Nedan ser du vilka kvällar som är planerade och vilka som redan är bemannade.
@@ -65,7 +65,7 @@ const adultsToSentence = (event: Event) => {
         <tbody>
           {events.map((event) => (
             <tr class="even:bg-christalle-800">
-              <td class="p-2">{event.date}, kl. {eventsStore.time.tiny(event)}</td>
+              <td class="p-2">{event.date} kl.&nbsp;{eventsStore.time.tiny(event)}</td>
               <td class="p-2">{event.data.title ?? "(inget tema ännu)"}</td>
               <td class="p-2">{adultsToSentence(event)}</td>
             </tr>
