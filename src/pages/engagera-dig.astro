@@ -28,7 +28,7 @@ const adultsToSentence = (event: Event) => {
   <main class="flex flex-col gap-y-16">
     <section>
       <H2>Vad gör man som vuxen på Rindögården?</H2>
-      <div class="flex flex-col gap-4 mb-6">
+      <div class="flex flex-col gap-4 mb-6 mt-2">
         <p>
           Att vara vuxen på Rindögården innebär att du är med och skapar en trygg och rolig plats för barnen att vistas på. Du behöver inte vara någon expert på barn eller lek, utan det viktigaste är att du är närvarande och engagerad.
         </p>
@@ -37,7 +37,7 @@ const adultsToSentence = (event: Event) => {
         </p>
       </div>
 
-      <h3 class="font-bangers tracking-wider text-2xl leading-tight">Uppgifter</h3>
+      <h3 class="font-days-one tracking-wider text-2xl leading-tight">Uppgifter</h3>
       <ul class="list-disc list-inside mb-6">
         <li>Var först på plats, möt barnen när de kommer</li>
         <li>För närvarolista och kontrollera medgivandeformulär</li>
@@ -45,7 +45,7 @@ const adultsToSentence = (event: Event) => {
         <li>Hjälp till ifall något händer</li>
       </ul>
 
-      <h3 class="text-xl font-bangers tracking-wider leading-tight">Registerutdrag ur belastningsregistret</h3>
+      <h3 class="text-xl font-days-one tracking-wider leading-tight">Registerutdrag ur belastningsregistret</h3>
       <div class="flex flex-col gap-4 mb-2">
         <p>
           Alla vuxna som bemannar Rindögården behöver visa upp ett registerutdrag ur belastningsregistret. Registerutdraget hämtar du kostnadsfritt online hos Polisen.
@@ -56,30 +56,32 @@ const adultsToSentence = (event: Event) => {
       </a>
     </section>
 
-    <section class="flex flex-col gap-y-4">
+    <section class="">
       <H2>Kontakta oss</H2>
-      <p>
+      <p class="mt-2 mb-4">
         Vi är ett litet gäng vuxna som tillsammans sköter logistik och planering för Rindögården. Vi är alltid intresserade av att få in nya idéer och tankar, så tveka inte att höra av dig om du har något på hjärtat!
       </p>
       <ul class="flex flex-row flex-wrap gap-y-2 gap-x-4">
         {contacts.map(contact => (
           <li class="min-w-[max-content] flex-1 border rounded-md px-4 py-2">
-            <h3 class="text-xl font-bangers tracking-widest">{contact.name}</h3>
+            <h3 class="text-xl font-days-one tracking-widest">{contact.name}</h3>
             <p class="">{contact.how}</p>
           </li>
         ))}
       </ul>
     </section>
 
-    <section class="flex flex-col gap-y-4">
+    <section class="">
       <H2>Tillfällen</H2>
-      <p>
-        Varje kväll behöver bemannas av minst två vuxna för att vi ska kunna hålla öppet. Nedan ser du vilka kvällar som är planerade och vilka som redan är bemannade.
-      </p>
+      <div class="flex flex-col gap-y-4 mt-2">
+        <p>
+          Varje kväll behöver bemannas av minst två vuxna för att vi ska kunna hålla öppet. Nedan ser du vilka kvällar som är planerade och vilka som redan är bemannade.
+        </p>
 
-      <p>
-        Kan du tänka dig att ställa upp? Underbart! Hör av dig till någon av oss i planeringsgruppen så lägger vi upp dig på schemat.
-      </p>
+        <p>
+          Kan du tänka dig att ställa upp? Underbart! Hör av dig till någon av oss i planeringsgruppen så lägger vi upp dig på schemat.
+        </p>
+      </div>
 
       <table class="w-full my-6 font-mono text-sm mb-12">
         <thead>
@@ -90,7 +92,7 @@ const adultsToSentence = (event: Event) => {
         </thead>
         <tbody>
           {events.map((event) => (
-            <tr class="data-[uncertain]:bg-red-600/40 even:bg-christalle-800 bg-transparent" data-uncertain={event.missingAdults > 0}>
+            <tr class="data-[uncertain]:bg-mandy-800/20 even:bg-allports-800 bg-transparent" data-uncertain={event.missingAdults > 0}>
               <td class="p-2">{event.date} kl.&nbsp;{eventsStore.time.tiny(event)}</td>
               <td class="p-2 flex flex-col">
                 <strong>{event.data.title}</strong>

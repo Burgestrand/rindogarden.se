@@ -11,6 +11,6 @@ size ??= 30 - (text ?? "").length
 
 const fontSize = `${size}vw`
 ---
-<h1 class="text-white font-bangers text-[clamp(1rem,var(--font-size),6rem)] text-center drop-shadow-[0_0px_3px_rgba(0,0,0,1.0)]" class:list={Astro.props.class} style=`--font-size: ${fontSize}`>
+<h1 class="text-white overflow-hidden break-words font-days-one text-[clamp(1rem,var(--font-size),6rem)] text-center drop-shadow-[0_0px_3px_rgba(0,0,0,1.0)]" class:list={Astro.props.class} style=`--font-size: ${fontSize}`>
   {text}
 </h1>

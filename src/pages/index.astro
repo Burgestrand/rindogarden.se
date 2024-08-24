@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Headline from '../components/headings/Headline.astro'
 import Time from '../components/events/Time.astro'
+import localLogo from '../images/logo/Logo-RG-Rectangle-Neg-RGB.png'
+import { Image } from 'astro:assets'
 
 import * as events from '../events'
 
@@ -10,8 +11,8 @@ const title = "Rindögården!"
 ---
 
 <Layout title={title}>
-	<header class="subgrid">
-		<Headline text={title} class="col-[full]" />
+	<header class="subgrid overflow-x-hidden flex flex-col items-center">
+		<Image src={localLogo} alt="Rindögården" class="w-full max-w-[500px]" />
 		<p class="text-center px-4 col-[content]">
 			Vi är precis i <strong>startgroparna</strong>. Håll utkik, det kommer mer här snart!
 		</p>
@@ -20,12 +21,12 @@ const title = "Rindögården!"
 	<main class="subgrid mb-12">
 		<ol class="flex flex-col gap-y-8 col-[content]">
 			{upcoming.map((event) => (
-				<li class="group flex rounded-md shadow-md bg-picton-blue-600 data-[uncertain]:bg-picton-blue-600/20 data-[uncertain]:opacity-80" data-uncertain={event.missingAdults > 0}>
-					<a href={event.url} class="rounded-md px-4 py-4 block flex-1">
+				<li class="group flex rounded-md shadow-md bg-allports-600 data-[uncertain]:bg-allports-600/20 data-[uncertain]:opacity-80" data-uncertain={event.missingAdults > 0}>
+					<a href={event.url} class="rounded-md px-4 py-4 block flex-1 max-w-full">
 						<article class="flex flex-col gap-4">
 							<header class="flex justify-between flex-wrap gap-x-4 gap-y-2">
-								<div>
-									<h1 class="text-4xl font-bangers tracking-wider leading-none">{event.data.title}</h1>
+								<div class="break-words max-w-full">
+									<h1 class="text-2xl font-days-one tracking-wider leading-none">{event.data.title}</h1>
 									<Time event={event} style="full" class="inline-block mt-1" />
 								</div>
 								<span class="self-start flex flex-col flex-wrap font-bold">

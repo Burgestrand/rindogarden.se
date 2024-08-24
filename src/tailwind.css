@@ -2,44 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-details > summary.list-none::-webkit-details-marker,
-details > summary.list-none::marker {
-  display: none;
-}
-
-@font-face {
-  font-family: 'Bangers';
-  src: url('/fonts/Bangers/Bangers-Regular.ttf') format('TrueType');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nunito';
-  src: url('/fonts/Nunito/static/Nunito-Regular.ttf') format('TrueType');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nunito';
-  src: url('/fonts/Nunito/static/Nunito-Bold.ttf') format('TrueType');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nunito';
-  src: url('/fonts/Nunito/static/Nunito-Italic.ttf') format('TrueType');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
 @layer base {
+  details > summary.list-none::-webkit-details-marker,
+  details > summary.list-none::marker {
+    display: none;
+  }
+
   .grid-standard {
     --gap: clamp(1rem, 6vw, 3rem);
     --full: minmax(var(--gap), 1fr);
@@ -60,6 +28,16 @@ details > summary.list-none::marker {
   }
 }
 
+@layer utilities {
+  .writing-horizontal {
+    writing-mode: horizontal-tb;
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+  }
+}
+
 @layer components {
   .subgrid {
     display: grid;
@@ -68,11 +46,11 @@ details > summary.list-none::marker {
   }
 
   .btn {
-    @apply rounded-md block px-4 py-2 text-2xl text-center shadow-lg border-2 border-black/20 font-bangers tracking-wider;
+    @apply rounded-md block px-4 py-2 text-2xl text-center shadow-lg border-2 border-black/20 font-days-one tracking-wider;
   }
 
   .btn-primary {
-    @apply bg-picton-blue;
+    @apply bg-allports-400;
   }
 
   .btn-disabled {
