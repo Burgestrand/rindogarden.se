@@ -11,6 +11,6 @@ export default defineConfig({
     applyBaseStyles: false /* Disable base styles, we use custom tailwind.css */
   }), sitemap(), mdx()],
   redirects: {
-    '/kontakta-oss': '/engagera-dig'
+    '/kontakta-oss': '/engagera-dig#kontakta-oss'
   }
 });
