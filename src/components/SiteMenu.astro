@@ -1,12 +1,16 @@
 ---
 import Links from "./MainMenu/Links.astro"
 ---
-<nav class="sticky top-0 subgrid z-50 backdrop-blur-md border-b-2 border-slate-900/60 shadow-xl">
+<nav class="sticky top-0 subgrid z-50 backdrop-blur-md border-b-2 border-shark-900/60 shadow-xl bg-shark-950/90 text-white">
   <details class="group list-none flex gap-4 sm:hidden col-[full]">
-    <summary class="flex cursor-pointer list-none items-center justify-end gap-4 bg-puerto-rico-400/90">
-      <div class="inline-flex px-4 relative">
-        <div class="inline-flex items-center gap-2 relative text-black">
-          <svg class="w-12 transition-transform duration-300 group-open:-rotate-180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+      <div class="inline-flex flex-col justify-center items-center px-4 text-sm font-days-one uppercase">
+        <span>Rindögården</span>
+      </div>
+
+      <div class="inline-flex px-4 self-end">
+        <div class="inline-flex items-center gap-2 relative font-days-one uppercase">
+          <svg class="w-12 transition-transform duration-150 group-open:duration-300 group-open:-rotate-180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M13 12H21M13 8H21M13 16H21M6 7V17M6 17L3 14M6 17L9 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
 
@@ -15,9 +19,12 @@ import Links from "./MainMenu/Links.astro"
       </div>
     </summary>
 
-    <div class="group-open:mb-2"></div>
+    <div class="grid overflow-hidden animate-grid-auto-height">
 
-    <Links />
+      <div class="min-h-0 transition-all">
+        <Links class="mt-2" />
+      </div>
+    </div>
   </details>
 
   <div class="hidden sm:subgrid py-8 sm:bg-slate-800/80">

@@ -6,7 +6,7 @@ const links = [
   { text: "Vanliga frågor", href: "/faq", color: "bg-puerto-rico-400" },
 ]
 ---
-<ul class="flex flex-col font-days-one items-stretch gap-2 justify-center sm:flex-row text-2xl sm:text-[clamp(1rem,3.2vw,1.5rem)]">
+<ul class="flex flex-col font-days-one items-stretch gap-2 justify-center sm:flex-row text-2xl sm:text-[clamp(1rem,3.2vw,1.5rem)]" class:list={Astro.props.class}>
   {links.map((link) =>
     <li class="flex uppercase">
       <a href={link.href} class="relative flex text-white px-4 py-2 w-full items-center justify-center">

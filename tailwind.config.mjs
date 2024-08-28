@@ -8,24 +8,19 @@ export default {
 			sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
 		},
 		extend: {
+			keyframes: {
+				'grid-auto-height': {
+					'0%': { 'grid-template-rows': '0fr' },
+					'100%': { 'grid-template-rows': '1fr' }
+				}
+			},
+			animation: {
+				'grid-auto-height': 'grid-auto-height 300ms ease-in-out forwards',
+			},
 			fontFamily: {
 				'days-one': ['Days One', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
-				'picton-blue': {
-					'50': '#eef9ff',
-					'100': '#d9f1ff',
-					'200': '#bce7ff',
-					'300': '#8edaff',
-					'400': '#59c3ff',
-					DEFAULT: '#35a7ff', // E
-					'600': '#1b87f5',
-					'700': '#1470e1',
-					'800': '#1759b6',
-					'900': '#194d8f',
-					'950': '#142f57',
-				},
-				// With Rindögården New
 				'shark': {
 					'50': '#f6f7f7',
 					'100': '#e2e5e3',
@@ -44,7 +39,7 @@ export default {
 					'100': '#d5f2e9',
 					'200': '#aae5d4',
 					'300': '#77d1ba',
-					'400': '#62bfaa', // X
+					'400': '#62bfaa',
 					'500': '#329a85',
 					'600': '#257c6b',
 					'700': '#226357',
