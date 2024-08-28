@@ -4,13 +4,14 @@ import SiteMenu from '../components/SiteMenu.astro';
 
 interface Props {
 	title: string;
+	class?: any;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-900 text-white">
+<html lang="en" class="bg-slate-900 text-white" class:list={Astro.props.class}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Rindögården är en fritidsgård på Rindö för
