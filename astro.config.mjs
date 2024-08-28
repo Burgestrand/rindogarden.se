@@ -9,5 +9,8 @@ export default defineConfig({
   site: 'https://www.rindögården.se',
   integrations: [tailwind({
     applyBaseStyles: false /* Disable base styles, we use custom tailwind.css */
-  }), sitemap(), mdx()]
+  }), sitemap(), mdx()],
+  redirects: {
+    '/kontakta-oss': '/engagera-dig'
+  }
 });
