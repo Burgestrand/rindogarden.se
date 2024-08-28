@@ -12,11 +12,13 @@ interface Props {
 
 const styles = {
   full: events.timestamp.full,
-  short: events.date.full,
+  short: events.date.full
 }
 
 const { event, style } = Astro.props
 const styleFn = styles[style ?? "full"]
 
 ---
-<time datetime={events.timestamp.iso(event)} class:list={Astro.props.class}>{styleFn(event)}</time>
+<time datetime={events.timestamp.iso(event)} class:list={Astro.props.class}>
+  <slot>{styleFn(event)}</slot>
+</time>

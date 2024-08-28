@@ -8,8 +8,10 @@ interface Props {
 
 const { event } = Astro.props
 ---
-<ul class="flex gap-x-2 justify-center text-sm" class:list={Astro.props.class}>
-  {event.data.adults.map((adult) => (
-    <li class="border border-allports-800 px-2 rounded-md bg-allports-400">{adult}</li>
-  ))}
-</ul>
+{event.data.adults.length !== 0 && (
+  <ul class="flex gap-x-1" class:list={Astro.props.class}>
+    {event.data.adults.map((adult) => (
+      <li class="border-2 border-allports-700 bg-allports-600 tracking-wide text-white font-days-one px-1 rounded-sm">{adult}</li>
+    ))}
+  </ul>
+)}

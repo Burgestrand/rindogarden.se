@@ -40,9 +40,12 @@ export const timestamp = {
   full: (event: Event) => `${date.full(event)}, kl. ${time.full(event)}`
 }
 
+type Custom = (object: { date: Temporal.PlainDate, locale: string, timeZone: string }) => any;
+
 export const date = {
   full: (event: Event) => event.date.toLocaleString(locale, { dateStyle: "full" }),
   short: (event: Event) => event.date.toLocaleString(locale, { dateStyle: "short" }),
+  custom: (event: Event, fn: Custom) => fn({ date: event.date, locale, timeZone })
 }
 
 export const time = {

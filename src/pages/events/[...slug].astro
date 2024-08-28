@@ -47,6 +47,12 @@ const title = (event.data.title) + " " + events.date.short(event)
     </p>
     <Adults event={event} class="justify-center text-sm" />
   </header>
+  {event.missingAdults > 0 && (
+    <a href="/engagera-dig" class="block rounded-md bg-puerto-rico-700 overflow-hidden no-underline tracking-wide">
+      <H2 class="text-center border-b-0 py-2">Fler vuxna behövs!</H2>
+      <p class="block text-center no-underline bg-white text-black font-days-one py-2">Sign me up!</p>
+    </a>
+  )}
   <main>
     <Content />
   </main>
