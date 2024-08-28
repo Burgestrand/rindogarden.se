@@ -1,17 +1,22 @@
 ---
-const links = [
-  { text: "Hem", href: "/", color: "bg-lightning-yellow-500" },
-  { text: "För Vuxna", href: "/for-vuxna", color: "bg-persian-rose-500" },
-  { text: "Engagera dig", href: "/engagera-dig", color: "bg-allports-600" },
-  { text: "Vanliga frågor", href: "/faq", color: "bg-puerto-rico-400" },
+type Link = { text: string, href: string, active?: (pathname: string) => boolean }
+const links: Link[] = [
+  { text: "Hem", href: "/", active: (pathname) => pathname === "/" },
+  { text: "För Vuxna", href: "/for-vuxna" },
+  { text: "Engagera dig", href: "/engagera-dig" },
+  { text: "Vanliga frågor", href: "/faq" },
 ]
+
+const active = (link: Link) => {
+  const pathname = new URL(Astro.request.url).pathname
+  return link.active?.(pathname) ?? pathname.startsWith(link.href)
+}
 ---
-<ul class="flex flex-col font-days-one items-stretch gap-2 justify-center sm:flex-row text-2xl sm:text-[clamp(1rem,3.2vw,1.5rem)]" class:list={Astro.props.class}>
+<ul class="flex flex-col font-days-one gap-2 justify-end sm:flex-row text-normal" class:list={Astro.props.class}>
   {links.map((link) =>
-    <li class="flex uppercase">
-      <a href={link.href} class="relative flex text-white px-4 py-2 w-full items-center justify-center">
-        <span class="absolute inset-0 transform sm:block border-2 border-black/20" class:list={link.color}></span>
-        <span class="text-white relative inline-flex text-center" class:list={link.color}>{link.text}</span>
+    <li class="flex uppercase group" data-active={active(link)}>
+      <a href={link.href} class="relative flex text-white border-2 px-4 py-2 w-full items-center justify-center group-data-[active]:bg-persian-rose-500">
+        <span class="text-white relative inline-flex text-center">{link.text}</span>
       </a>
     </li>
   )}

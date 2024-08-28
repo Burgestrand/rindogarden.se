@@ -1,8 +1,10 @@
 ---
 import Links from "./MainMenu/Links.astro"
+import logoImage from '../images/logo/Logo-RG-Square-Neg-RGB.png'
+import { Image } from 'astro:assets'
 ---
 <nav class="sticky top-0 subgrid z-50 backdrop-blur-md border-b-2 border-shark-900/60 shadow-xl bg-shark-950/90 text-white">
-  <details class="group list-none flex gap-4 sm:hidden col-[full]">
+  <details class="group list-none flex gap-4 sm:hidden col-[full]" open>
     <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
       <div class="inline-flex flex-col justify-center items-center px-4 text-sm font-days-one uppercase">
         <span>Rindögården</span>
@@ -20,16 +22,18 @@ import Links from "./MainMenu/Links.astro"
     </summary>
 
     <div class="grid overflow-hidden animate-grid-auto-height">
-
-      <div class="min-h-0 transition-all">
-        <Links class="mt-2" />
+      <div class="min-h-0 transition-all px-4 pb-4">
+        <Links class="mt-2 items-stretch" />
       </div>
     </div>
   </details>
 
-  <div class="hidden sm:subgrid py-8 sm:bg-slate-800/80">
-    <div class="col-[breakout]">
-      <Links />
+  <div class="hidden sm:subgrid py-2">
+    <div class="col-[breakout] flex flex-wrap justify-center items-end gap-x-8">
+      <Image src={logoImage} alt="Rindögården" class="max-h-[4lh] w-auto" />
+      <div class="h-fit">
+        <Links class="items-stretch pb-3" />
+      </div>
     </div>
   </div>
 </nav>
