@@ -1,0 +1,15 @@
+---
+import type { Event } from '../../events'
+
+interface Props {
+  event: Event,
+  class?: any
+}
+
+const { event } = Astro.props
+---
+<ul class="flex gap-x-2 justify-center text-sm" class:list={Astro.props.class}>
+  {event.data.adults.map((adult) => (
+    <li class="border border-allports-800 px-2 rounded-md bg-allports-400">{adult}</li>
+  ))}
+</ul>

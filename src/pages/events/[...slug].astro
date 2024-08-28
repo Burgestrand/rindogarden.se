@@ -4,6 +4,7 @@ import H2 from '../../components/headings/H2.astro'
 
 import * as events from '../../events'
 import Time from '../../components/events/Time.astro'
+import Adults from '../../components/events/Adults.astro'
 
 export async function getStaticPaths() {
   const list = await events.list()
@@ -30,9 +31,10 @@ const title = (event.data.title) + " " + events.date.short(event)
     <Headline class="text-4xl">
       {event.data.title}
     </Headline>
-    <p class="text-center">
+    <p class="text-center mb-1">
       <Time event={event} />
     </p>
+    <Adults event={event} />
   </header>
   <section class="px-4 py-2 border border-shark-800 mb-2 rounded-sm bg-persian-rose-500/80 flex flex-col gap-y-2 col-[breakout]">
     <H2 class="">Viktigt!</H2>
