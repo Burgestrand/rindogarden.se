@@ -27,16 +27,7 @@ const { Content } = await event.render()
 const title = (event.data.title) + " " + events.date.short(event)
 ---
 <Layout title={title}>
-  <header class="my-4">
-    <Headline class="text-4xl">
-      {event.data.title}
-    </Headline>
-    <p class="text-center mb-1">
-      <Time event={event} />
-    </p>
-    <Adults event={event} />
-  </header>
-  <section class="px-4 py-2 border border-shark-800 mb-2 rounded-sm bg-persian-rose-500/80 flex flex-col gap-y-2 col-[breakout]">
+  <section class="mt-4 px-4 py-2 border border-shark-800 mb-2 rounded-sm bg-persian-rose-600/80 flex flex-col gap-y-2 col-[breakout]">
     <H2 class="">Viktigt!</H2>
 
     <p>
@@ -47,6 +38,15 @@ const title = (event.data.title) + " " + events.date.short(event)
       Mer info under <strong>För vuxna</strong>
     </a>
   </section>
+  <header class="mt-2 py-4">
+    <Headline class="text-4xl leading-none">
+      {event.data.title}
+    </Headline>
+    <p class="text-center mb-1">
+      <Time event={event} />
+    </p>
+    <Adults event={event} class="justify-center text-sm" />
+  </header>
   <main>
     <Content />
   </main>
