@@ -11,7 +11,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-slate-900 text-white" class:list={Astro.props.class}>
+<html lang="en" class="bg-shark-950 text-white">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Rindögården är en fritidsgård på Rindö för
@@ -30,7 +30,9 @@ const { title } = Astro.props;
 	<body class="grid-standard">
 		<SiteMenu />
 
-		<slot />
+		<div class="subgrid bg-slate-900" class:list={Astro.props.class}>
+			<slot />
+		</div>
 	</body>
 </html>
 <style is:global>
