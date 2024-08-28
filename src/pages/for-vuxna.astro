@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Headline from '../components/headings/Headline.astro'
 import H2 from '../components/headings/H2.astro'
+import { consentFormURL } from "../common"
 
 const title = "För vuxna"
 ---
@@ -17,8 +18,8 @@ const title = "För vuxna"
       <p class="mt-2">
         För att ditt barn ska kunna delta på Rindögården behöver ni och ert barn acceptera de regler och riktlinjer som gäller.
       </p>
-      <a class="btn btn-disabled my-4">
-        Öppna och fyll i formuläret (kommer snart)
+      <a class="btn btn-primary my-4" href={consentFormURL}>
+        Öppna och fyll i formuläret
       </a>
     </section>
   </main>
