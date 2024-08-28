@@ -26,6 +26,18 @@
   .grid-standard > * {
     grid-column: content;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-days-one;
+  }
+
+  a:where([href]) {
+    @apply underline underline-offset-2;
+  }
+
+  a:where(.btn) {
+    @apply no-underline;
+  }
 }
 
 @layer utilities {

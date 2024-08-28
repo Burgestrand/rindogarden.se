@@ -22,7 +22,7 @@ const title = "Rindögården!"
 		<ol class="flex flex-col gap-y-8 col-[content]">
 			{upcoming.map((event) => (
 				<li class="group flex rounded-md shadow-md bg-allports-600 data-[uncertain]:bg-allports-600/20 data-[uncertain]:opacity-80" data-uncertain={event.missingAdults > 0}>
-					<a href={event.url} class="rounded-md px-4 py-4 block flex-1 max-w-full">
+					<a href={event.url} class="rounded-md px-4 py-4 block flex-1 max-w-full no-underline">
 						<article class="flex flex-col gap-4">
 							<header class="flex justify-between flex-wrap gap-x-4 gap-y-2">
 								<div class="break-words max-w-full">

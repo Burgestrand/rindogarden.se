@@ -31,9 +31,21 @@ const title = (event.data.title) + " " + events.date.short(event)
     </p>
   </header>
   <main>
+    <section class="px-4 py-2 border border-shark-800 mb-2 rounded-sm bg-persian-rose-500/80 flex flex-col gap-y-2">
+      <h2 class="text-4xl">Viktigt!</h2>
+
+      <p>
+        Innan du kommer till Rindögården behöver din vårdnadshavare fylla i och skicka in ett medgivandeformulär.
+      </p>
+
+      <a href="/for-vuxna" class="text-lightning-yellow-500">
+        Mer info under <strong>För vuxna</strong>
+      </a>
+    </section>
+
     <Content />
   </main>
-  <footer>
+  <footer class="pb-8">
     <nav>
       <ul class="grid grid-cols-2 place-items-center">
         <li>
