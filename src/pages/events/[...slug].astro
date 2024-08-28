@@ -27,6 +27,12 @@ const { Content } = await event.render()
 const title = (event.data.title) + " " + events.date.short(event)
 ---
 <Layout title={title}>
+  {event.missingAdults > 0 && (
+    <a href="/engagera-dig" class="col-[breakout] block mt-4 rounded-md bg-puerto-rico-700 overflow-hidden no-underline tracking-wide">
+      <H2 class="text-center border-b-0 py-2">Fler vuxna behövs!</H2>
+      <p class="block text-center no-underline bg-white text-black font-days-one py-2">Sign me up!</p>
+    </a>
+  )}
   <section class="mt-4 px-4 py-2 border border-shark-800 mb-2 rounded-sm bg-persian-rose-600/80 flex flex-col gap-y-2 col-[breakout]">
     <H2 class="">Viktigt!</H2>
 
@@ -38,7 +44,7 @@ const title = (event.data.title) + " " + events.date.short(event)
       Mer info under <strong>För vuxna</strong>
     </a>
   </section>
-  <header class="mt-2 py-4">
+  <header class="mt-2 py-4 col-[content]">
     <Headline class="text-4xl leading-none">
       {event.data.title}
     </Headline>
@@ -47,16 +53,10 @@ const title = (event.data.title) + " " + events.date.short(event)
     </p>
     <Adults event={event} class="justify-center text-sm" />
   </header>
-  {event.missingAdults > 0 && (
-    <a href="/engagera-dig" class="block rounded-md bg-puerto-rico-700 overflow-hidden no-underline tracking-wide">
-      <H2 class="text-center border-b-0 py-2">Fler vuxna behövs!</H2>
-      <p class="block text-center no-underline bg-white text-black font-days-one py-2">Sign me up!</p>
-    </a>
-  )}
-  <main>
+  <main class="col-[content]">
     <Content />
   </main>
-  <footer class="my-4 py-2">
+  <footer class="my-4 py-2 col-[content]">
     <nav>
       <ul class="grid grid-cols-2 place-items-center">
         <li>{prev && (<a href={prev.url}>Föregående</a>)}</li>
