@@ -1,5 +1,7 @@
 ---
 import Headline from '../../components/headings/Headline.astro'
+import H2 from '../../components/headings/H2.astro'
+
 import * as events from '../../events'
 import Time from '../../components/events/Time.astro'
 
@@ -24,39 +26,33 @@ const { Content } = await event.render()
 const title = (event.data.title) + " " + events.date.short(event)
 ---
 <Layout title={title}>
-  <header>
-    <Headline class="leading-none pt-6" text={event.data.title} size={18} />
+  <header class="my-4">
+    <Headline class="text-4xl">
+      {event.data.title}
+    </Headline>
     <p class="text-center">
       <Time event={event} />
     </p>
   </header>
+  <section class="px-4 py-2 border border-shark-800 mb-2 rounded-sm bg-persian-rose-500/80 flex flex-col gap-y-2 col-[breakout]">
+    <H2 class="">Viktigt!</H2>
+
+    <p>
+      Innan du kommer till Rindögården behöver din vårdnadshavare fylla i och skicka in ett medgivandeformulär.
+    </p>
+
+    <a href="/for-vuxna" class="text-lightning-yellow-500">
+      Mer info under <strong>För vuxna</strong>
+    </a>
+  </section>
   <main>
-    <section class="px-4 py-2 border border-shark-800 mb-2 rounded-sm bg-persian-rose-500/80 flex flex-col gap-y-2">
-      <h2 class="text-4xl">Viktigt!</h2>
-
-      <p>
-        Innan du kommer till Rindögården behöver din vårdnadshavare fylla i och skicka in ett medgivandeformulär.
-      </p>
-
-      <a href="/for-vuxna" class="text-lightning-yellow-500">
-        Mer info under <strong>För vuxna</strong>
-      </a>
-    </section>
-
     <Content />
   </main>
-  <footer class="pb-8">
+  <footer class="my-4 py-2">
     <nav>
       <ul class="grid grid-cols-2 place-items-center">
-        <li>
-          {prev && (
-            <a href={prev.url}>Föregående</a>
-          )}
-        </li>
-        <li>
-          {next && (
-            <a href={next.url}>Nästa</a>
-          )}
+        <li>{prev && (<a href={prev.url}>Föregående</a>)}</li>
+        <li>{next && (<a href={next.url}>Nästa</a>)}
         </li>
       </ul>
     </nav>

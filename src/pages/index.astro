@@ -11,7 +11,7 @@ const title = "Rindögården!"
 ---
 
 <Layout title={title}>
-	<header class="subgrid overflow-x-hidden flex flex-col items-center">
+	<header class="subgrid overflow-x-hidden flex flex-col items-center mb-4">
 		<Image src={localLogo} alt="Rindögården" class="w-full max-w-[500px]" />
 		<p class="text-center px-4 col-[content]">
 			Vi är precis i <strong>startgroparna</strong>. Håll utkik, det kommer mer här snart!
@@ -19,7 +19,7 @@ const title = "Rindögården!"
 	</header>
 
 	<main class="subgrid mb-12">
-		<ol class="flex flex-col gap-y-8 col-[content]">
+		<ol class="flex flex-col gap-y-4 col-[content]">
 			{upcoming.map((event) => (
 				<li class="group flex rounded-md shadow-md bg-allports-600 data-[uncertain]:bg-allports-600/20 data-[uncertain]:opacity-80" data-uncertain={event.missingAdults > 0}>
 					<a href={event.url} class="rounded-md px-4 py-4 block flex-1 max-w-full no-underline">

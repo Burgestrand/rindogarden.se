@@ -3,6 +3,8 @@ import type { Event } from '../events'
 import Layout from '../layouts/Layout.astro';
 import Headline from '../components/headings/Headline.astro'
 import H2 from '../components/headings/H2.astro'
+import H3 from '../components/headings/H3.astro'
+
 import * as eventsStore from '../events'
 
 const title = "Engagera dig"
@@ -23,11 +25,13 @@ const adultsToSentence = (event: Event) => {
 
 <Layout title={title}>
   <header class="col-[full]">
-    <Headline text={title} size={18.2} />
+    <Headline class="text-5xl my-2">
+      Engagera dig!
+    </Headline>
   </header>
   <main class="flex flex-col gap-y-16">
     <section>
-      <H2>Vad gör man som vuxen på Rindögården?</H2>
+      <H2 class="">Vad gör man som vuxen på Rindögården?</H2>
       <div class="flex flex-col gap-4 mb-6 mt-2">
         <p>
           Att vara vuxen på Rindögården innebär att du är med och skapar en trygg och rolig plats för barnen att vistas på. Du behöver inte vara någon expert på barn eller lek, utan det viktigaste är att du är närvarande och engagerad.
@@ -37,7 +41,7 @@ const adultsToSentence = (event: Event) => {
         </p>
       </div>
 
-      <h3 class="font-days-one tracking-wider text-2xl leading-tight">Uppgifter</h3>
+      <H3 class="">Uppgifter</H3>
       <ul class="list-disc list-inside mb-6">
         <li>Var först på plats, möt barnen när de kommer</li>
         <li>För närvarolista och kontrollera medgivandeformulär</li>
@@ -45,7 +49,7 @@ const adultsToSentence = (event: Event) => {
         <li>Hjälp till ifall något händer</li>
       </ul>
 
-      <h3 class="text-xl font-days-one tracking-wider leading-tight">Registerutdrag ur belastningsregistret</h3>
+      <H3 class="">Registerutdrag ur belastningsregistret</H3>
       <div class="flex flex-col gap-4 mb-2">
         <p>
           Alla vuxna som bemannar Rindögården behöver visa upp ett registerutdrag ur belastningsregistret. Registerutdraget hämtar du kostnadsfritt online hos Polisen.

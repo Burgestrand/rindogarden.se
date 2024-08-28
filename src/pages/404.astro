@@ -3,7 +3,9 @@ import Layout from '../layouts/Layout.astro'
 import Headline from '../components/headings/Headline.astro'
 ---
 <Layout title="Sidan kan inte hittas">
-  <Headline text="Sidan kan inte hittas" size={30} class="leading-none" />
+  <Headline class="text-5xl my-2">
+    Sidan kan inte hittas
+  </Headline>
 
   <main class="text-center flex flex-col gap-y-4">
 
@@ -12,7 +14,7 @@ import Headline from '../components/headings/Headline.astro'
     </p>
 
     <p class="my-4">
-      <a class="inline-block px-4 py-2 rounded-md bg-puerto-rico-400" href="/">Gå till startsidan</a>
+      <a class="btn btn-primary" href="/">Gå till startsidan</a>
     </p>
   </main>
 </Layout>
