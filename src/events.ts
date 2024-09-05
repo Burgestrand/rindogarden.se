@@ -45,6 +45,7 @@ type Custom = (object: { date: Temporal.PlainDate, locale: string, timeZone: str
 export const date = {
   full: (event: Event) => event.date.toLocaleString(locale, { dateStyle: "full" }),
   short: (event: Event) => event.date.toLocaleString(locale, { dateStyle: "short" }),
+  shortMonth: (event: Event) => event.date.toLocaleString(locale, { month: "short" }).replace(/\.$/, ''),
   custom: (event: Event, fn: Custom) => fn({ date: event.date, locale, timeZone })
 }
 
@@ -57,6 +58,11 @@ export const time = {
   tiny: (event: Event) => {
     const from = event.time
     const to = from.add(event.duration)
-    return `${from.hour}-${to.hour}`
+
+    if (from.minute === 0 && to.minute === 0) {
+      return `${from.hour}-${to.hour}`
+    } else {
+      return `${from.hour}:${from.minute}-${to.hour}:${to.minute}`
+    }
   }
 }

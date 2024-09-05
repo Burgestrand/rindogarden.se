@@ -30,7 +30,7 @@ const title = "Rindögården!"
 					<a href={event.url} class="grid grid-cols-subgrid col-start-1 bg-white text-shark-950 no-underline">
 						<Time event={event} class="inline-flex flex-col px-2 py-1 bg-shark-950 text-white uppercase font-bold items-center justify-center font-days-one">
 							<span class="text-3xl ">{event.date.day}</span>
-							<span class="text-normal">{events.date.custom(event, ({ date, locale }) => date.toLocaleString(locale, { month: 'short' }).replace(".", ""))}</span>
+							<span class="text-normal">{events.date.shortMonth(event)}</span>
 						</Time>
 
 						<article class="mx-2">
