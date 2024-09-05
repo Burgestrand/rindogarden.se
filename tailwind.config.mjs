@@ -21,6 +21,26 @@ export default {
 				'days-one': ['Days One', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
+				'link': {
+					DEFAULT: '#e54fbc', // mulberry-500
+					'visited': '',
+					'hover': '',
+					'focus': '',
+					'active': '',
+				},
+				'mulberry': {
+					'50': '#fdf2fb',
+					'100': '#fbe8f7',
+					'200': '#f9d1f1',
+					'300': '#f5ace5',
+					'400': '#ee78d2',
+					'500': '#e54fbc',
+					'600': '#d32e9e',
+					'700': '#b71f82',
+					'800': '#971d6b',
+					'900': '#7e1d5b',
+					'950': '#4d0a35',
+				},
 				'shark': {
 					'50': '#f6f7f7',
 					'100': '#e2e5e3',

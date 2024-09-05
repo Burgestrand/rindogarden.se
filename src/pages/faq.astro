@@ -3,6 +3,21 @@ import Layout from '../layouts/Layout.astro';
 import Headline from '../components/headings/Headline.astro'
 
 const title = "Vanliga frågor"
+
+type Question = { question: string, answer: string }
+type Section = { title: string, questions: Question[] }
+
+const sections: Section[] = [
+  {
+    title: "Kiosken",
+    questions: [
+      {
+        question: "Hur betalar man i kiosken?",
+        answer: "Via Swish eller kontant. Vi har begränsat med växel."
+      }
+    ],
+  },
+]
 ---
 
 <Layout title={title}>
@@ -11,9 +26,31 @@ const title = "Vanliga frågor"
       {title}
     </Headline>
   </header>
-  <main class="col-[content]">
-    <p class="text-center mb-4">
-      Lite snålt här ännu, men det kommer nog!
-    </p>
+  <main class="col-[content] flex flex-col gap-8">
+    {sections.map(({ title, questions }) => (
+      <section>
+        <header class="mb-4 bg-black p-2 rounded-sm">
+          <h2 class="text-2xl">{title}</h2>
+        </header>
+
+        <ol class="flex flex-col gap-2">
+          {questions.map(({ question, answer }) => (
+            <li>
+              <details class="text-sm group">
+                <summary class="list-none text-link flex mb-2">
+                  <h3 class="text-base flex items-center border-b border-current">
+                    <svg class="size-5 inline-block group-open:rotate-90 transition-transform" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{question}</span>
+                  </h3>
+                </summary>
+                <p>{answer}</p>
+              </details>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
   </main>
 </Layout>
