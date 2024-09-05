@@ -17,9 +17,14 @@ const title = "Rindögården!"
 <Layout title={title}>
 	<header class="subgrid overflow-x-hidden flex flex-col items-center my-4">
 		<Image src={localLogo} alt="Rindögården" class="w-full max-w-[500px]" />
-		<p class="text-center px-4 col-[content]">
-			Vi är precis i <strong>startgroparna</strong>. Håll utkik, det kommer mer här snart!
-		</p>
+		<div class="text-center px-4 col-[content] flex flex-col gap-4">
+			<p>
+				Rindögården är en fritidsgård för dig i åk 4-6 på Rindö. Vi har öppet varannan fredagkväll!
+			</p>
+			<p>
+				Vi är precis i <strong>startgroparna</strong>. Håll utkik, det kommer mer här snart!
+			</p>
+		</div>
 	</header>
 
 	<main class="col-[content] mb-12">
@@ -33,18 +38,18 @@ const title = "Rindögården!"
 							<span class="text-normal">{events.date.shortMonth(event)}</span>
 						</Time>
 
-						<article class="mx-2">
+						<article class="mx-2 font-sans">
 							{event.missingAdults > 0 && (
-								<p class="font-bold flex justify-between bg-persian-rose-500 text-white text-sm -mx-2 px-2 py-1">
-									<strong>Vi saknar {event.missingAdults} {event.missingAdults > 1 ? "vuxna" : "vuxen"}!</strong>
-									<strong class="">Engagera dig</strong>
+								<p class="font-bold flex justify-between bg-persian-rose-500 text-white -mx-2 px-2 py-1">
+									<strong class="text-inherit">Vi saknar {event.missingAdults} {event.missingAdults > 1 ? "vuxna" : "vuxen"}!</strong>
+									<strong class="text-inherit">Engagera dig</strong>
 								</p>
 							)}
 
 							<div class="py-2 group-data-[uncertain]:grayscale flex flex-col">
 								<header>
 									<h1 class="text-xl font-days-one tracking-wider leading-none text-puerto-rico-600">{event.data.title}</h1>
-									<Time event={event} class="text-sm">
+									<Time event={event} class="text-sm font-bold group-data-[uncertain]:text-gray-300">
 										{events.date.custom(event, ({ date, locale }) => date.toLocaleString(locale, { weekday: 'long' }))}
 										kl. {events.time.tiny(event)}
 									</Time>

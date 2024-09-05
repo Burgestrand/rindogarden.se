@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Headline from '../../components/headings/Headline.astro'
+import H2 from '../../components/headings/H2.astro'
+
+const title = "Engagera dig - Registerutdrag ur belastningsregistret"
+---
+
+<Layout title={title}>
+  <header class="col-[full]">
+    <Headline class="text-4xl my-4">
+      Engagera dig!
+    </Headline>
+  </header>
+  <main class="col-[content] flex flex-col gap-y-4">
+    <H2>Registerutdrag</H2>
+    <div class="flex flex-col gap-4 mb-2">
+      <p>
+        För att säkerställa en trygg miljö för barnen ber vi alla vuxna
+        frivilliga att visa utdrag ur belastningsregistret.
+      </p>
+      <p>
+        Detta är ett krav från kommunen, och en standardprocedur för
+        verksamheter som hanterar barn och ungdomar.
+      </p>
+      <p>
+        Du kan enkelt beställa ett digitalt registerutdrag online hos Polisen,
+        kostnadsfritt.
+      </p>
+      <a href="https://polisen.se/tjanster-tillstand/belastningsregistret/barn-annan-verksamhet/" class="">
+        Hämta registerutdrag hos Polisen
+      </a>
+      <p>
+        Välj <strong>Arbete med barn i annan verksamhet än skola och barnomsorg</strong>.
+      </p>
+    </div>
+
+    <H2>Uppvisande av registerutdrag</H2>
+    <div class="flex flex-col gap-4">
+      <p>
+        När du har fått ditt registerutdrag behöver du visa upp det för någon av
+        oss i ledningsgruppen.
+      </p>
+      <p>
+        Vi kommer att kontrollera utdragets äkthet och sedan notera att du har
+        visat upp det. Du ska inte lämna någon kopia.
+      </p>
+      <p>
+        Äktheten kontrolleras med <a href="https://etjanster.polisen.se/eregisterutdrag/kontroll">Polisens kontrolltjänst för digitala registerutdrag</a>.
+      </p>
+    </div>
+  </main>
+</Layout>

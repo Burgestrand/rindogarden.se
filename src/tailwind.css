@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  strong {
+    @apply text-lightning-yellow-500;
+  }
+
+  p {
+    @apply text-sm;
+  }
+
   details > summary.list-none::-webkit-details-marker,
   details > summary.list-none::marker {
     display: none;
@@ -32,7 +40,7 @@
   }
 
   a:where([href]) {
-    @apply underline underline-offset-2;
+    @apply font-days-one text-link underline underline-offset-2;
   }
 
   a:where(.btn) {

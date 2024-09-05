@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string,
+  [key: string]: any
+}
+
+const { title, ...rest } = Astro.props
+---
+<details class="text-sm group" {...rest}>
+  <summary class="list-none text-lightning-yellow-500 flex mb-2">
+    <h3 class="text-base flex items-center border-b border-current">
+      <svg class="size-5 inline-block group-open:rotate-90 transition-transform" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>{title}</span>
+    </h3>
+  </summary>
+
+  <div class="mb-4">
+    <slot />
+  </div>
+</details>
