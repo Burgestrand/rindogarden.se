@@ -42,6 +42,11 @@ export const timestamp = {
 
 type Custom = (object: { date: Temporal.PlainDate, locale: string, timeZone: string }) => any;
 
+export const isPast = (event: Event) => Temporal.PlainDate.compare(
+  event.date,
+  Temporal.Now.plainDateISO()
+) < 0
+
 export const date = {
   full: (event: Event) => event.date.toLocaleString(locale, { dateStyle: "full" }),
   short: (event: Event) => event.date.toLocaleString(locale, { dateStyle: "short" }),

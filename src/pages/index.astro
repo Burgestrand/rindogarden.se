@@ -32,7 +32,15 @@ const title = "Rindögården!"
 		<ol class="grid grid-cols-[auto_1fr] grid-flow-row gap-y-4">
 			{upcoming.map((event) => (
 				<li class="group grid grid-cols-subgrid col-start-1" data-uncertain={event.missingAdults > 0}>
-					<a href={event.url} class="grid grid-cols-subgrid col-start-1 bg-white text-shark-950 no-underline">
+					<a href={event.url} class="grid grid-cols-subgrid col-start-1 bg-white text-shark-950 no-underline relative">
+						{events.isPast(event) && (
+							<div class="absolute inset-0 flex justify-center items-center bg-black/70 backdrop-blur-[1px] z-50">
+								<p class="font-bold text-white text-3xl font-days-one -rotate-12 text-stroke">
+									Har redan varit!
+								</p>
+							</div>
+						)}
+
 						<Time event={event} class="inline-flex flex-col px-2 py-1 bg-shark-950 text-white uppercase font-bold items-center justify-center font-days-one">
 							<span class="text-3xl ">{event.date.day}</span>
 							<span class="text-normal">{events.date.shortMonth(event)}</span>

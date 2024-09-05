@@ -47,8 +47,19 @@
     @apply no-underline;
   }
 }
-
 @layer utilities {
+  .text-stroke {
+    --text-stroke: 2px;
+    --text-stroke-color: #000;
+    --text-stroke-inverted: calc(var(--text-stroke) * -1);
+
+    text-shadow:
+      var(--text-stroke-inverted) var(--text-stroke-inverted) 0 var(--text-stroke-color),
+      var(--text-stroke) var(--text-stroke-inverted) 0 var(--text-stroke-color),
+      var(--text-stroke-inverted) var(--text-stroke) 0 var(--text-stroke-color),
+      var(--text-stroke) var(--text-stroke) 0 var(--text-stroke-color);
+  }
+
   .writing-horizontal {
     writing-mode: horizontal-tb;
   }
