@@ -30,7 +30,9 @@ import { Image } from 'astro:assets'
 
   <div class="hidden sm:subgrid py-2">
     <div class="col-[breakout] flex flex-wrap justify-center items-end gap-x-8">
-      <Image src={logoImage} alt="Rindögården" class="max-h-[4lh] w-auto" />
+      <a href="/" class="max-h-[4lh] w-auto">
+        <Image src={logoImage} alt="Rindögården" class="max-h-[inherit] w-[inherit]" />
+      </a>
       <div class="h-fit">
         <Links class="items-stretch pb-3" />
       </div>
