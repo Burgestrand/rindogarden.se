@@ -47,16 +47,17 @@ const title = (event.data.title) + " " + events.date.short(event)
       </div>
     </section>
   )}
-  <header class="mt-2 py-4 col-[content]">
-    <Headline class="text-4xl leading-none">
-      {event.data.title}
-    </Headline>
-    <p class="text-center mb-1">
-      <Time event={event} />
-    </p>
-    <Adults event={event} class="justify-center text-sm" />
-  </header>
   <main class="col-[content]">
+    <header class="mt-2 py-4">
+      <Headline class="text-4xl leading-none">
+        {event.data.title}
+      </Headline>
+      <p class="text-center mb-1">
+        <Time event={event} />
+      </p>
+      <Adults event={event} class="justify-center text-sm" />
+    </header>
+
     <Content />
   </main>
   <footer class="my-4 py-2 col-[content]">
