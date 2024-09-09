@@ -27,9 +27,12 @@ const adultsToSentence = (event: Event) => {
     </Headline>
   </header>
   <main class="col-[content] flex flex-col gap-y-4">
-    <p>
-      Rindögården drivs av frivilliga, och vi tar tacksamt emot all hjälp vi kan få!
-    </p>
+    <div class="flex flex-col gap-2">
+      <p>
+        Rindögården drivs av frivilliga, och vi tar tacksamt emot all hjälp vi kan få!
+      </p>
+      <a href="/engagera-dig/belastningsregistret">Instruktioner för registerutdrag</a>
+    </div>
 
     <Section title="Hur gården fungerar">
       <div class="flex flex-col gap-2 mb-2">
@@ -111,8 +114,24 @@ const adultsToSentence = (event: Event) => {
           </tbody>
         </table>
       </Question>
-
-      <a href="/engagera-dig/belastningsregistret">Belastningsregisterutdrag</a>
+    </Section>
+    <Section title="Inför kvällen">
+      <Question title="Måste jag ha ett tema?">
+        <p>
+          Absolut inte! Det räcker mer än väl att komma dit och bemanna gården så att den kan hålla öppet.
+        </p>
+      </Question>
+      <Question title="Vem gör inköp till min temakväll?" open>
+        <div class="flex flex-col gap-2">
+          <p>
+            Ta kontakt med ledningsgruppen för att bestämma en rimlig budget.
+            Därefter kan ni handla in det ni behöver. <strong>Spara kvittot!</strong> - annars kan ni inte få ersättning.
+          </p>
+          <p>
+            Hinner ni inte handla själv så kan ledningsgruppen kan hjälpa till, alternativt någon i volontärgruppen.
+          </p>
+        </div>
+      </Question>
     </Section>
   </main>
 </Layout>
