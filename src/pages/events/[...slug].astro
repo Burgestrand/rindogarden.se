@@ -62,11 +62,7 @@ const title = (event.data.title) + " " + events.date.short(event)
   </main>
   <footer class="my-4 py-2 col-[content]">
     <nav>
-      <ul class="grid grid-cols-2 place-items-center">
-        <li>{prev && (<a href={prev.url}>Föregående</a>)}</li>
-        <li>{next && (<a href={next.url}>Nästa</a>)}
-        </li>
-      </ul>
+      <a href=`/#${event.id}`>Tillbaka till listan</a>
     </nav>
   </footer>
 </Layout>

@@ -7,6 +7,7 @@ const timeZone = 'Europe/Stockholm'
 
 type OriginalEvent = CollectionEntry<'events'>
 export type Event = OriginalEvent & {
+  id: string,
   date: Temporal.PlainDate,
   time: Temporal.PlainTime,
   duration: Temporal.Duration,
@@ -21,7 +22,8 @@ async function augment(event: OriginalEvent): Promise<Event> {
   const missingAdults = Math.max(2 - event.data.adults.length, 0)
   const url = `/events/${event.slug}`
   const copy = Object.create(event)
-  return Object.assign(copy, { date, time, duration, url, missingAdults }) as Event
+  const id = `event:${date.toString()}`
+  return Object.assign(copy, { id, date, time, duration, url, missingAdults }) as Event
 }
 
 function compare(a: Event, b: Event) {
