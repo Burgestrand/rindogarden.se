@@ -15,6 +15,5 @@ export default defineConfig({
   }), mdx()],
   redirects: {
     '/kontakta-oss': '/engagera-dig#kontakta-oss',
-    '/links/kiosk': 'https://docs.google.com/spreadsheets/d/1py96JJDT-kH9LhlpUZ_noK3sQeXrYHmQY16sBQNdYHw/edit?usp=sharing'
   }
 });
