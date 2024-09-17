@@ -1,5 +1,5 @@
 ---
-import type { Event } from '../events'
+import type { Event } from '@/events'
 import Layout from '@/layouts/Layout.astro';
 import Headline from '@components/headings/Headline.astro'
 
@@ -8,7 +8,7 @@ import Section from '@components/faq/Section.astro'
 
 import { workgroup, email, facebookURL } from "../common"
 
-import * as eventsStore from '../events'
+import * as eventsStore from '@/events'
 
 const title = "Engagera dig"
 const events = await eventsStore.list()
