@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import Headline from '@components/headings/Headline.astro'
 import H2 from '@components/headings/H2.astro'
-import { consentFormURL, rindobornaURL, rindobornaSwishURL, rindobornaSwishNumber } from "../common"
+import { consentFormURL, rindobornaURL, rindobornaSwishMemberURL, rindobornaSwishNumber } from "../common"
 
 const title = "För vuxna"
 ---
@@ -28,7 +28,7 @@ const title = "För vuxna"
           Om era barn kommer till gården ska ert hushåll vara medlemmar i <a href="www.rindoborna.se">Föreningen Rindöborna</a>.
         </p>
         <p>
-          Medlemsskapet kostar 200 kr år och familj, och betalas in via Swish till <a href={rindobornaSwishURL}>{rindobornaSwishNumber}</a>.
+          Medlemsskapet kostar 200 kr år och familj, och betalas in via Swish till <a href={rindobornaSwishMemberURL}>{rindobornaSwishNumber}</a>.
         </p>
       </div>
     </section>

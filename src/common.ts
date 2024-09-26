@@ -15,13 +15,19 @@ export const facebookURL = "https://www.facebook.com/rindogarden"
 export const rindobornaURL = "http://www.rindoborna.se"
 export const rindobornaSwishNumber = "123 232 44 99"
 
-const swishSearchParams = new URLSearchParams({
-  sw: rindobornaSwishNumber.replace(/ /g, ""),
-  amt: "200",
-  cur: "SEK",
-  msg: "Årsmedlemsskap Rindöborna: Hushållets namn & mail",
-  edit: "amt,msg",
-  src: "qr",
-})
+function rindobornaSwishURL({ amount, message, edit }: { amount?: string, message: string, edit?: string }) {
+  const swishSearchParams = new URLSearchParams({
+    sw: rindobornaSwishNumber.replace(/ /g, ""),
+    cur: "SEK",
+    msg: message,
+    edit: edit ?? "amt,msg",
+    src: "qr",
+  })
 
-export const rindobornaSwishURL = "https://app.swish.nu/1/p/sw/?" + swishSearchParams.toString().replace(/\+/g, "%20")
+  if (amount) swishSearchParams.set("amt", amount);
+
+  return "https://app.swish.nu/1/p/sw/?" + swishSearchParams.toString().replace(/\+/g, "%20")
+}
+
+export const rindobornaSwishMemberURL = rindobornaSwishURL({ amount: "200", message: "Årsmedlemsskap Rindöborna: Hushållets namn & mail" })
+export const rindobornaSwishKioskURL = rindobornaSwishURL({ amount: null, message: "Rindögården Kiosk", edit: "amt" })

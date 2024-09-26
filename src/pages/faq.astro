@@ -5,7 +5,7 @@ import Question from '@components/faq/Question.astro'
 import Section from '@components/faq/Section.astro'
 
 const title = "Vanliga frågor"
-import { email, workgroup } from "../common"
+import { email, workgroup, rindobornaURL, rindobornaSwishKioskURL, facebookURL } from "../common"
 
 ---
 
@@ -26,7 +26,7 @@ import { email, workgroup } from "../common"
             Utanför fredagskvällarna så är det en frivillig grupp föräldrar som sköter t.ex. inköp till kiosken, jaga frivilliga föräldrar, hemsidan, och kontakten med Rindöborna.
           </p>
           <p>
-            <a href="http://www.rindoborna.se">Föreningen Rindöborna</a> har hand om kontakt med kommunen, så att vi får lov att nyttja lokalen.
+            <a href={rindobornaURL}>Föreningen Rindöborna</a> har hand om kontakt med kommunen, så att vi får lov att nyttja lokalen.
           </p>
         </div>
       </Question>
@@ -44,7 +44,7 @@ import { email, workgroup } from "../common"
             ))}
           </ul>
           <p>
-            Du kan också nå oss på <a href="https://www.facebook.com/rindogarden">Facebook Messenger</a>
+            Du kan också nå oss på <a href={facebookURL}>Facebook Messenger</a>
             eller maila <a href=`mailto:${email}`>{email}</a>.
           </p>
         </div>
@@ -63,10 +63,20 @@ import { email, workgroup } from "../common"
         </div>
       </Question>
     </Section>
-    <Section title="Kiosken">
+    <Section title="På Gården">
+      <Question title="Vem får vara med?">
+        <p>
+          Barn i åk 4-6 är välkomna på Rindögården. Läs mer under <a href="/for-vuxna">För Vuxna</a>.
+        </p>
+      </Question>
+      <Question title="Kostar det något att vara med?">
+        <p>
+          Nej, det är gratis att vara på Rindögården.
+        </p>
+      </Question>
       <Question title="Hur betalar man i kiosken?">
         <p>
-          Via Swish eller kontant. Vi har begränsat med växel.
+          Via Swish till <a href={rindobornaSwishKioskURL}>Föreningen Rindöborna</a> eller kontant. Vi har begränsat med växel.
         </p>
       </Question>
     </Section>
