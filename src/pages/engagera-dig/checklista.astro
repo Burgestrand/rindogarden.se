@@ -1,0 +1,119 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Headline from '@components/headings/Headline.astro'
+import H2 from '@components/headings/H2.astro'
+import ChecklistItem from '@components/Checklist/Item.astro'
+
+const title = "Checklista: Rindögården!"
+
+const opening = [
+  "Öppna upp nedervåningen.",
+  "Slå på vattnet (knapp vid dörren).",
+  "Ta fram närvarolistan och pennor.",
+  "Ställ fram godiset i kiosken.",
+  "Öppna upp övervåningen.",
+]
+
+const during = [
+  "Se till att alla skriver in sig på närvarolistan.",
+]
+
+const closeUpper = [
+  "Ta med soppåsar upp och byt.",
+  "Plocka upp eventuellt skräp.",
+  "Kontrollera toalettens skick.",
+  "Fönster är stängda.",
+  "Utrymningsdörren är stängd.",
+  "Lampor är släckta.",
+  "Inga barn är kvar.",
+  "Lås dörren.",
+]
+
+const closing = [
+  "Byt soppåsar i papperskorgarna.",
+  "Plocka upp eventuellt skräp.",
+  "Kontrollera toaletternas skick.",
+  "Fönster är stängda.",
+  "Utrymningsdörren är stängd och låst.",
+  "Inga barn är kvar.",
+
+  "Ställ tillbaka godiset i kiosken.",
+  "Notera ifall kiosken behöver fyllas på.",
+
+  "Kontrollera närvarolistan.",
+  "Släck alla lampor.",
+  "Stäng av vattnet.",
+  "Lås dörren.",
+  "Vi är bäst!"
+]
+
+const finished = [
+  "Avlägg rapport till ledningsgruppen.",
+  "Närvarolista till ledningsgruppen.",
+  "Kioskrapport till ledningsgruppen.",
+]
+---
+
+<Layout title={title}>
+  <header class="col-[full]">
+    <Headline class="text-4xl my-4">{title}</Headline>
+  </header>
+  <main class="col-[content] gap-y-4">
+    <div class="grid grid-cols-[auto_1fr] grid-flow-row gap-y-4">
+      <section class="grid grid-cols-subgrid col-span-full">
+        <H2 class="mb-2 col-span-full">Öppning</H2>
+        <ol class="grid grid-cols-subgrid col-span-full">
+          {opening.map((text) => (
+            <ChecklistItem class="col-span-full grid grid-cols-subgrid items-center ">
+              <span class="peer-checked:line-through">{text}</span>
+            </ChecklistItem>
+          ))}
+        </ol>
+      </section>
+
+      <section class="grid grid-cols-subgrid col-span-full">
+        <H2 class="mb-2 col-span-full">Under kvällen</H2>
+        <ol class="grid grid-cols-subgrid col-span-full">
+          {during.map((text) => (
+            <ChecklistItem class="col-span-full grid grid-cols-subgrid items-center ">
+              <span class="peer-checked:line-through">{text}</span>
+            </ChecklistItem>
+          ))}
+        </ol>
+      </section>
+
+      <section class="grid grid-cols-subgrid col-span-full">
+        <H2 class="mb-2 col-span-full">Stäng övervåningen</H2>
+        <ol class="grid grid-cols-subgrid col-span-full">
+          {closeUpper.map((text) => (
+            <ChecklistItem class="col-span-full grid grid-cols-subgrid items-center ">
+              <span class="peer-checked:line-through">{text}</span>
+            </ChecklistItem>
+          ))}
+        </ol>
+      </section>
+
+      <section class="grid grid-cols-subgrid col-span-full">
+        <H2 class="mb-2 col-span-full">Stäng nedervåningen</H2>
+        <ol class="grid grid-cols-subgrid col-span-full">
+          {closing.map((text) => (
+            <ChecklistItem class="col-span-full grid grid-cols-subgrid items-center ">
+              <span class="peer-checked:line-through">{text}</span>
+            </ChecklistItem>
+          ))}
+        </ol>
+      </section>
+
+      <section class="grid grid-cols-subgrid col-span-full">
+        <H2 class="mb-2 col-span-full">Avslutning</H2>
+        <ol class="grid grid-cols-subgrid col-span-full">
+          {finished.map((text) => (
+            <ChecklistItem class="col-span-full grid grid-cols-subgrid items-center ">
+              <span class="peer-checked:line-through">{text}</span>
+            </ChecklistItem>
+          ))}
+        </ol>
+      </section>
+    </div>
+  </main>
+</Layout>
