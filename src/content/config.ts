@@ -8,7 +8,7 @@ const events = defineCollection({
     summary: z.string().optional().default(""),
     group: z.enum(['åk 4-6']).default('åk 4-6'),
     time: z.string().time().default('18:30:00'),
-    duration: z.string().duration().default('PT2H'),
+    duration: z.string().duration().default('PT2H30M'),
   }),
 })
 
