@@ -65,11 +65,12 @@ export const time = {
   tiny: (event: Event) => {
     const from = event.time
     const to = from.add(event.duration)
+    const ljust = (n: number) => n.toString().padStart(2, '0')
 
     if (from.minute === 0 && to.minute === 0) {
       return `${from.hour}-${to.hour}`
     } else {
-      return `${from.hour}:${from.minute}-${to.hour}:${to.minute}`
+      return `${from.hour}:${ljust(from.minute)}-${to.hour}:${ljust(to.minute)}`
     }
   }
 }
