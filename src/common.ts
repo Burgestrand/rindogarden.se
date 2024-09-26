@@ -12,7 +12,7 @@ export const workgroup = [
 
 export const email = "rindogarden@gmail.com"
 export const facebookURL = "https://www.facebook.com/rindogarden"
-export const rindobornaURL = "https://www.rindoborna.se"
+export const rindobornaURL = "http://www.rindoborna.se"
 export const rindobornaSwishNumber = "123 232 44 99"
 
 const swishSearchParams = new URLSearchParams({
