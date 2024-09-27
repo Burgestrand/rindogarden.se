@@ -2,7 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import Headline from '@components/headings/Headline.astro'
 import H2 from '@components/headings/H2.astro'
-import { consentFormURL, rindobornaURL, rindobornaSwishMemberURL, rindobornaSwishNumber } from "../common"
+import { rindobornaSwishNumber } from "@/common"
+import urls, { swish } from '@/urls'
 
 const title = "För vuxna"
 ---
@@ -17,7 +18,7 @@ const title = "För vuxna"
   <main class="col-[content] flex flex-col gap-y-6">
     <p>
       Rindögården är en fritidsgård för barn i åk 4-6. Gården drivs ideellt av
-      <a href={rindobornaURL}>Föreningen Rindöborna</a>, engagerade vuxna i ledningsgruppen, samt en
+      <a href={urls.external.rindoborna}>Föreningen Rindöborna</a>, engagerade vuxna i ledningsgruppen, samt en
       liten skara av frivilliga vuxna som bemannar gården på fredagarna.
     </p>
 
@@ -25,10 +26,10 @@ const title = "För vuxna"
       <H2>Föreningen Rindöborna</H2>
       <div class="flex flex-col gap-2 mt-2">
         <p>
-          Om era barn kommer till gården ska ert hushåll vara medlemmar i <a href="www.rindoborna.se">Föreningen Rindöborna</a>.
+          Om era barn kommer till gården ska ert hushåll vara medlemmar i <a href={urls.external.rindoborna}>Föreningen Rindöborna</a>.
         </p>
         <p>
-          Medlemsskapet kostar 200 kr år och familj, och betalas in via Swish till <a href={rindobornaSwishMemberURL}>{rindobornaSwishNumber}</a>.
+          Medlemsskapet kostar 200 kr år och familj, och betalas in via Swish till <a href={swish.member}>{rindobornaSwishNumber}</a>.
         </p>
       </div>
     </section>
@@ -36,7 +37,7 @@ const title = "För vuxna"
       <H2>Hjälp oss hålla öppet!</H2>
       <div class="flex flex-col gap-2 mt-2">
         <p>
-          Överväg att <a href="/engagra-dig">engagera dig</a> som volontär på gården. Vi behöver alltid fler vuxna som kan hjälpa till att hålla gården öppen.
+          Överväg att <a href={urls.engage}>engagera dig</a> som volontär på gården. Vi behöver alltid fler vuxna som kan hjälpa till att hålla gården öppen.
         </p>
       </div>
     </section>
@@ -45,14 +46,14 @@ const title = "För vuxna"
       <p class="my-2">
         För att ditt barn ska kunna delta på Rindögården behöver ni och ert barn acceptera de regler och riktlinjer som gäller.
       </p>
-      <a class="block text-link" href={consentFormURL}>
+      <a class="block text-link" href={urls.external.consentForm}>
         Öppna och fyll i formuläret
       </a>
     </section>
     <section>
       <H2>Kontaktinformation</H2>
       <p class="my-2">
-        Se <a class="inline-block text-link" href="/faq">Vanliga frågor</a>.
+        Se <a class="inline-block text-link" href={urls.faq}>Vanliga frågor</a>.
       </p>
     </section>
   </main>

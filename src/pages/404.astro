@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import Headline from '@components/headings/Headline.astro'
+import urls from '@/urls'
 ---
 <Layout title="Sidan kan inte hittas" class="bg-transparent">
   <Headline class="col-[content] text-5xl my-4">
@@ -13,7 +14,7 @@ import Headline from '@components/headings/Headline.astro'
     </p>
 
     <p class="my-4">
-      <a class="text-xl" href="/">Gå till startsidan</a>
+      <a class="text-xl" href={urls.home}>Gå till startsidan</a>
     </p>
   </main>
 </Layout>

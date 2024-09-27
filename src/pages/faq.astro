@@ -5,7 +5,8 @@ import Question from '@components/faq/Question.astro'
 import Section from '@components/faq/Section.astro'
 
 const title = "Vanliga frågor"
-import { email, workgroup, rindobornaURL, rindobornaSwishKioskURL, facebookURL } from "../common"
+import { email, workgroup } from "../common"
+import urls, { swish } from '@/urls'
 
 ---
 
@@ -26,7 +27,7 @@ import { email, workgroup, rindobornaURL, rindobornaSwishKioskURL, facebookURL }
             Utanför fredagskvällarna så är det en frivillig grupp föräldrar som sköter t.ex. inköp till kiosken, jaga frivilliga föräldrar, hemsidan, och kontakten med Rindöborna.
           </p>
           <p>
-            <a href={rindobornaURL}>Föreningen Rindöborna</a> har hand om kontakt med kommunen, så att vi får lov att nyttja lokalen.
+            <a href={urls.external.rindoborna}>Föreningen Rindöborna</a> har hand om kontakt med kommunen, så att vi får lov att nyttja lokalen.
           </p>
         </div>
       </Question>
@@ -44,7 +45,7 @@ import { email, workgroup, rindobornaURL, rindobornaSwishKioskURL, facebookURL }
             ))}
           </ul>
           <p>
-            Du kan också nå oss på <a href={facebookURL}>Facebook Messenger</a>
+            Du kan också nå oss på <a href={urls.external.facebook}>Facebook Messenger</a>
             eller maila <a href=`mailto:${email}`>{email}</a>.
           </p>
         </div>
@@ -66,7 +67,7 @@ import { email, workgroup, rindobornaURL, rindobornaSwishKioskURL, facebookURL }
     <Section title="På Gården">
       <Question title="Vem får vara med?">
         <p>
-          Barn i åk 4-6 är välkomna på Rindögården. Läs mer under <a href="/for-vuxna">För Vuxna</a>.
+          Barn i åk 4-6 är välkomna på Rindögården. Läs mer under <a href={urls.forVuxna}>För Vuxna</a>.
         </p>
       </Question>
       <Question title="Kostar det något att vara med?">
@@ -76,7 +77,7 @@ import { email, workgroup, rindobornaURL, rindobornaSwishKioskURL, facebookURL }
       </Question>
       <Question title="Hur betalar man i kiosken?">
         <p>
-          Via Swish till <a href={rindobornaSwishKioskURL}>Föreningen Rindöborna</a> eller kontant. Vi har begränsat med växel.
+          Via Swish till <a href={swish.kiosk}>Föreningen Rindöborna</a> eller kontant. Vi har begränsat med växel.
         </p>
       </Question>
     </Section>

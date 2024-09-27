@@ -6,9 +6,10 @@ import Headline from '@components/headings/Headline.astro'
 import Question from '@components/faq/Question.astro'
 import Section from '@components/faq/Section.astro'
 
-import { workgroup, email, facebookURL } from "../common"
+import { workgroup, email } from "../common"
 
 import * as eventsStore from '@/events'
+import urls from '@/urls'
 
 const title = "Engagera dig"
 const events = await eventsStore.list()
@@ -31,8 +32,8 @@ const adultsToSentence = (event: Event) => {
       <p>
         Rindögården drivs av frivilliga, och vi tar tacksamt emot all hjälp vi kan få!
       </p>
-      <a href="/engagera-dig/belastningsregistret">Instruktioner för registerutdrag</a>
-      <a href="/engagera-dig/checklista">Checklista: Rindögården!</a>
+      <a href={urls.belastningsregistret}>Instruktioner för registerutdrag</a>
+      <a href={urls.checklist}>Checklista: Rindögården!</a>
     </div>
 
     <Section title="Hur gården fungerar">
@@ -80,12 +81,12 @@ const adultsToSentence = (event: Event) => {
             ))}
           </ul>
           <p>
-            Du kan också nå oss på <a href={facebookURL}>Facebook Messenger</a>
+            Du kan också nå oss på <a href={urls.external.facebook}>Facebook Messenger</a>
             eller maila <a href=`mailto:${email}`>{email}</a>.
           </p>
           <p>
             Om du ska bemanna en kväll så behöver du uppvisa ett utdrag ur belastningsregistret.
-            <a href="/engagera-dig/belastningsregistret">Läs mer om det här.</a>
+            <a href={urls.belastningsregistret}>Läs mer om det här.</a>
           </p>
         </div>
       </Question>

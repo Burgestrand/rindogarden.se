@@ -1,6 +1,7 @@
 ---
 import Headline from '@components/headings/Headline.astro'
 import H2 from '@components/headings/H2.astro'
+import urls from '@/urls'
 
 import * as events from '@/events'
 import Time from '@components/events/Time.astro'
@@ -28,7 +29,7 @@ const title = (event.data.title) + " " + events.date.short(event)
 ---
 <Layout title={title}>
   {event.missingAdults > 0 ? (
-    <a href="/engagera-dig" class="col-[breakout] block mt-4 bg-persian-rose-600 overflow-hidden no-underline tracking-wide">
+    <a href={urls.engage} class="col-[breakout] block mt-4 bg-persian-rose-600 overflow-hidden no-underline tracking-wide">
       <H2 class="border-b-0 py-2 px-4 text-white">Fler vuxna behövs!</H2>
       <p class="block bg-white underline font-days-one py-2 px-4">Sign me up!</p>
     </a>
@@ -41,7 +42,7 @@ const title = (event.data.title) + " " + events.date.short(event)
           Innan du kommer till Rindögården behöver din vårdnadshavare fylla i och skicka in ett medgivandeformulär.
         </p>
 
-        <a href="/for-vuxna">
+        <a href={urls.forVuxna}>
           Mer info under <strong>För vuxna</strong>
         </a>
       </div>

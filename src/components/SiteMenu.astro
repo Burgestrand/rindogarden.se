@@ -2,6 +2,8 @@
 import Links from "./MainMenu/Links.astro"
 import logoImage from '@images/logo/Logo-RG-Square-Neg-RGB.png'
 import { Image } from 'astro:assets'
+
+import urls from '@/urls'
 ---
 <nav class="sticky top-0 subgrid z-50 backdrop-blur-md border-b-2 border-shark-900/60 shadow-xl bg-shark-950/90 text-white">
   <details class="group list-none flex gap-4 sm:hidden col-[full]">
@@ -30,7 +32,7 @@ import { Image } from 'astro:assets'
 
   <div class="hidden sm:subgrid py-2">
     <div class="col-[breakout] flex flex-wrap justify-center items-end gap-x-8">
-      <a href="/" class="max-h-[4lh] w-auto">
+      <a href={urls.home} class="max-h-[4lh] w-auto">
         <Image src={logoImage} alt="Rindögården" class="max-h-[inherit] w-[inherit]" />
       </a>
       <div class="h-fit">

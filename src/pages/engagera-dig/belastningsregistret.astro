@@ -4,6 +4,8 @@ import Headline from '@components/headings/Headline.astro'
 import H2 from '@components/headings/H2.astro'
 
 const title = "Engagera dig - Registerutdrag ur belastningsregistret"
+
+import urls from '@/urls'
 ---
 
 <Layout title={title}>
@@ -27,7 +29,7 @@ const title = "Engagera dig - Registerutdrag ur belastningsregistret"
         Du kan enkelt beställa ett digitalt registerutdrag online hos Polisen,
         kostnadsfritt.
       </p>
-      <a href="https://polisen.se/tjanster-tillstand/belastningsregistret/barn-annan-verksamhet/" class="">
+      <a href={urls.external.polisen.utdrag} class="">
         Hämta registerutdrag hos Polisen
       </a>
       <p>
@@ -47,7 +49,7 @@ const title = "Engagera dig - Registerutdrag ur belastningsregistret"
         visat upp det. Vi sparar inga kopior av utdraget eller äkethetsbeviset.
       </p>
       <p>
-        Äktheten kontrolleras med <a href="https://etjanster.polisen.se/eregisterutdrag/kontroll">Polisens kontrolltjänst för digitala registerutdrag</a>.
+        Äktheten kontrolleras med <a href={urls.external.polisen.kontroll}>Polisens kontrolltjänst för digitala registerutdrag</a>.
       </p>
     </div>
   </main>
