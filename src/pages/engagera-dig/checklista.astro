@@ -16,6 +16,13 @@ const opening = [
 
 const during = [
   "Se till att alla skriver in sig på närvarolistan.",
+  "Kolla om diskmaskinen behöver köras eller plockas ur.",
+]
+
+const closing = [
+  "Meddela barnen 15 minuter innan gården stänger.",
+  "Be barnen plocka undan.",
+  "Stäng av och töm kaffebryggare, tekokare.",
 ]
 
 const closeUpper = [
@@ -29,7 +36,7 @@ const closeUpper = [
   "Lås dörren.",
 ]
 
-const closing = [
+const closeLower = [
   "Byt soppåsar i papperskorgarna.",
   "Plocka upp eventuellt skräp.",
   "Kontrollera toaletternas skick.",
@@ -39,6 +46,8 @@ const closing = [
 
   "Ställ tillbaka godiset i kiosken.",
   "Notera ifall kiosken behöver fyllas på.",
+
+  "Släng sopor på baksidan av huset (utgång pysselrummet).",
 
   "Kontrollera närvarolistan.",
   "Släck alla lampor.",
@@ -83,6 +92,17 @@ const finished = [
       </section>
 
       <section class="grid grid-cols-subgrid col-span-full">
+        <H2 class="mb-2 col-span-full">Stängningsdags</H2>
+        <ol class="grid grid-cols-subgrid col-span-full">
+          {closing.map((text) => (
+            <ChecklistItem class="col-span-full grid grid-cols-subgrid items-center ">
+              <span class="peer-checked:line-through">{text}</span>
+            </ChecklistItem>
+          ))}
+        </ol>
+      </section>
+
+      <section class="grid grid-cols-subgrid col-span-full">
         <H2 class="mb-2 col-span-full">Stäng övervåningen</H2>
         <ol class="grid grid-cols-subgrid col-span-full">
           {closeUpper.map((text) => (
@@ -96,7 +116,7 @@ const finished = [
       <section class="grid grid-cols-subgrid col-span-full">
         <H2 class="mb-2 col-span-full">Stäng nedervåningen</H2>
         <ol class="grid grid-cols-subgrid col-span-full">
-          {closing.map((text) => (
+          {closeLower.map((text) => (
             <ChecklistItem class="col-span-full grid grid-cols-subgrid items-center ">
               <span class="peer-checked:line-through">{text}</span>
             </ChecklistItem>
