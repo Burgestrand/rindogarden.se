@@ -1,18 +1,17 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Headline from '@components/headings/Headline.astro'
-import H2 from '@components/headings/H2.astro'
+import Layout from "@/layouts/Layout.astro";
+import Headline from "@components/headings/Headline.astro";
+import H2 from "@components/headings/H2.astro";
 
-const title = "Engagera dig - Registerutdrag ur belastningsregistret"
+const title = "Engagera dig - Registerutdrag ur belastningsregistret";
+import { email } from "@/common";
 
-import urls from '@/urls'
+import urls from "@/urls";
 ---
 
 <Layout title={title}>
   <header class="col-[full]">
-    <Headline class="text-4xl my-4">
-      Engagera dig!
-    </Headline>
+    <Headline class="text-4xl my-4"> Engagera dig! </Headline>
   </header>
   <main class="col-[content] flex flex-col gap-y-4">
     <H2>Registerutdrag</H2>
@@ -33,7 +32,9 @@ import urls from '@/urls'
         Hämta registerutdrag hos Polisen
       </a>
       <p>
-        Välj <strong>Arbete med barn i annan verksamhet än skola och barnomsorg</strong>.
+        Välj <strong
+          >Arbete med barn i annan verksamhet än skola och barnomsorg</strong
+        >.
       </p>
     </div>
 
@@ -41,15 +42,18 @@ import urls from '@/urls'
     <div class="flex flex-col gap-4">
       <p>
         När du har fått ditt registerutdrag behöver du visa upp det för valfri
-        person i ledningsgruppen. Du kan skicka utdraget till en av oss via
-        mail, eller visa upp det fysiskt.
+        person i ledningsgruppen. Du kan skicka utdraget direkt till en av oss
+        via mail, eller till <a href={`mailto:${email}`}>{email}</a>, eller visa
+        upp det för någon av oss fysiskt.
       </p>
       <p>
         Vi kommer att kontrollera utdragets äkthet och sedan notera att du har
         visat upp det. Vi sparar inga kopior av utdraget eller äkethetsbeviset.
       </p>
       <p>
-        Äktheten kontrolleras med <a href={urls.external.polisen.kontroll}>Polisens kontrolltjänst för digitala registerutdrag</a>.
+        Äktheten kontrolleras med <a href={urls.external.polisen.kontroll}
+          >Polisens kontrolltjänst för digitala registerutdrag</a
+        >.
       </p>
     </div>
   </main>
