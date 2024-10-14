@@ -1,46 +1,54 @@
 ---
-import type { Event } from '@/events'
-import Layout from '@/layouts/Layout.astro';
-import Headline from '@components/headings/Headline.astro'
+import type { Event } from "@/events";
+import Layout from "@/layouts/Layout.astro";
+import Headline from "@components/headings/Headline.astro";
 
-import Question from '@components/faq/Question.astro'
-import Section from '@components/faq/Section.astro'
+import Question from "@components/faq/Question.astro";
+import Section from "@components/faq/Section.astro";
 
-import { workgroup, email } from "../common"
+import { workgroup, email } from "../common";
 
-import * as eventsStore from '@/events'
-import urls from '@/urls'
+import * as eventsStore from "@/events";
+import urls from "@/urls";
 
-const title = "Engagera dig"
-const events = await eventsStore.list()
+const title = "Engagera dig";
+const events = await eventsStore.list();
 
 const adultsToSentence = (event: Event) => {
-  const missing = Math.max(2 - event.data.adults.length, 0)
-  const missingAdults = Array.from({ length: missing }).fill("🙋")
-  return [...event.data.adults, ...missingAdults].join(", ")
-}
+  const missing = Math.max(2 - event.data.adults.length, 0);
+  const missingAdults = Array.from({ length: missing }).fill("🙋");
+  return [...event.data.adults, ...missingAdults].join(", ");
+};
 ---
 
 <Layout title={title}>
   <header class="col-[full]">
-    <Headline class="text-4xl my-4">
-      Engagera dig!
-    </Headline>
+    <Headline class="text-4xl my-4"> Engagera dig! </Headline>
   </header>
   <main class="col-[content] flex flex-col gap-y-4">
     <div class="flex flex-col gap-2">
       <p>
-        Rindögården drivs av frivilliga, och vi tar tacksamt emot all hjälp vi kan få!
+        Rindögården drivs av frivilliga, och vi tar tacksamt emot all hjälp vi
+        kan få!
       </p>
-      <a href={urls.belastningsregistret}>Instruktioner för registerutdrag</a>
-      <a href={urls.checklist}>Checklista: Rindögården!</a>
     </div>
+
+    <Section title="Länkar">
+      <ul class="flex flex-col gap-2">
+        <li>
+          <a href={urls.belastningsregistret}
+            >Instruktioner för registerutdrag</a
+          >
+        </li>
+        <li><a href={urls.checklist}>Checklista: Rindögården!</a></li>
+      </ul>
+    </Section>
 
     <Section title="Hur gården fungerar">
       <div class="flex flex-col gap-2 mb-2">
         <p>
-          Rindögården är öppen varannan fredag, och varje kväll behöver bemannas av
-          minst två vuxna, annars kan vi inte hålla öppet.
+          Rindögården är öppen varannan fredag, och varje kväll behöver bemannas
+          av minst två vuxna, annars kan vi inte hålla öppet.
         </p>
         <p>
           Du är aldrig ensam vuxen på gården. Allra bäst blir det när man går
@@ -52,9 +60,11 @@ const adultsToSentence = (event: Event) => {
         <div class="flex flex-col gap-2">
           <p>
             Att vara vuxen på Rindögården innebär att du är med och skapar en
-            trygg och rolig plats för barnen att vistas på. Du behöver <strong>inte</strong> vara
-            lekledare, utan det viktigaste är att du är närvarande.
+            trygg och rolig plats för barnen att vistas på. Du behöver <strong
+              >inte</strong
+            > vara lekledare, utan det viktigaste är att du är närvarande.
           </p>
+          <p><a href={urls.checklist}>Checklista: Rindögården!</a></p>
           <ol class="flex flex-col list-disc ml-5 mb-2">
             <li>Du är först på plats och låser upp lokalen.</li>
             <li>Du öppnar kiosken, tar fram närvarolistan.</li>
@@ -70,29 +80,41 @@ const adultsToSentence = (event: Event) => {
           </p>
         </div>
       </Question>
-      <Question title="Hur hjälper jag till?">
+      <Question title="Kan jag ta med småsyskon?">
         <div class="flex flex-col gap-2">
           <p>
-            Ta kontakt med en av oss i arbetsgruppen!
+            Ja! Du som ställer upp en kväll kan absolut ta med syskon för att få
+            kvällen att gå ihop.
           </p>
+          <p>
+            Viktigt att tänka på är att de bör kunna klara sig en liten stund
+            själva, ifall det händer något som kräver vuxen uppmärksamhet.
+          </p>
+        </div>
+      </Question>
+      <Question title="Hur skriver jag upp mig?">
+        <div class="flex flex-col gap-2">
+          <p>Ta kontakt med en av oss i arbetsgruppen!</p>
           <ul class="list-disc ml-5">
-            {workgroup.map(({ name }) => (
-              <li>{name}</li>
-            ))}
+            {workgroup.map(({ name }) => <li>{name}</li>)}
           </ul>
           <p>
-            Du kan också nå oss på <a href={urls.external.facebook}>Facebook Messenger</a>
+            Du kan också nå oss på <a href={urls.external.facebook}
+              >Facebook Messenger</a
+            >
             eller maila <a href=`mailto:${email}`>{email}</a>.
           </p>
           <p>
-            Om du ska bemanna en kväll så behöver du uppvisa ett utdrag ur belastningsregistret.
+            Om du ska bemanna en kväll så behöver du uppvisa ett utdrag ur
+            belastningsregistret.
             <a href={urls.belastningsregistret}>Läs mer om det här.</a>
           </p>
         </div>
       </Question>
       <Question title="Vilka kvällar saknar vuxna?">
         <p>
-          Här är en lista på kvällar som saknar vuxna. Om du kan ställa upp, hör av dig!
+          Här är en lista på kvällar som saknar vuxna. Om du kan ställa upp, hör
+          av dig!
         </p>
         <table class="w-full my-6 font-mono text-sm mb-12">
           <thead>
@@ -102,17 +124,24 @@ const adultsToSentence = (event: Event) => {
             </tr>
           </thead>
           <tbody>
-            {events.map((event) => (
-              event.missingAdults ? (
-                <tr class="data-[uncertain]:bg-mandy-800/20 even:bg-allports-800 bg-transparent" data-uncertain={event.missingAdults > 0}>
-                  <td class="p-2">{event.date} kl.&nbsp;{eventsStore.time.tiny(event)}</td>
-                  <td class="p-2 flex flex-col">
-                    <strong>{event.data.title}</strong>
-                    <span>{adultsToSentence(event)}</span>
-                  </td>
-                </tr>
-              ) : null
-            ))}
+            {
+              events.map((event) =>
+                event.missingAdults ? (
+                  <tr
+                    class="data-[uncertain]:bg-mandy-800/20 even:bg-allports-800 bg-transparent"
+                    data-uncertain={event.missingAdults > 0}
+                  >
+                    <td class="p-2">
+                      {event.date} kl.&nbsp;{eventsStore.time.tiny(event)}
+                    </td>
+                    <td class="p-2 flex flex-col">
+                      <strong>{event.data.title}</strong>
+                      <span>{adultsToSentence(event)}</span>
+                    </td>
+                  </tr>
+                ) : null,
+              )
+            }
           </tbody>
         </table>
       </Question>
@@ -120,17 +149,21 @@ const adultsToSentence = (event: Event) => {
     <Section title="Inför kvällen">
       <Question title="Måste jag ha ett tema?">
         <p>
-          Absolut inte! Det räcker mer än väl att komma dit och bemanna gården så att den kan hålla öppet.
+          Absolut inte! Det räcker mer än väl att komma dit och bemanna gården
+          så att den kan hålla öppet.
         </p>
       </Question>
       <Question title="Vem gör inköp till min temakväll?">
         <div class="flex flex-col gap-2">
           <p>
             Ta kontakt med ledningsgruppen för att bestämma en rimlig budget.
-            Därefter kan ni handla in det ni behöver. <strong>Spara kvittot!</strong> - annars kan ni inte få ersättning.
+            Därefter kan ni handla in det ni behöver. <strong
+              >Spara kvittot!</strong
+            > - annars kan ni inte få ersättning.
           </p>
           <p>
-            Hinner ni inte handla själv så kan ledningsgruppen kan hjälpa till, alternativt någon i volontärgruppen.
+            Hinner ni inte handla själv så kan ledningsgruppen kan hjälpa till,
+            alternativt någon i volontärgruppen. Var i såfall ute i god tid!
           </p>
         </div>
       </Question>
