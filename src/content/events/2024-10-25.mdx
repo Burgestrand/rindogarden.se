@@ -2,3 +2,24 @@
 title: '🌈 Färga med batik'
 adults: ['Lena N.', 'Lina L.', 'Camilla M.H.']
 ---
+import { Image } from 'astro:assets'
+import bomullstyg from './2024-10-25/bomullstyg.jpg';
+
+<section class="flex flex-col gap-2">
+  <p>
+    Vi kommer att färga med batik!
+  </p>
+
+  <h2>Tänk på att</h2>
+  <ul class="text-sm list-disc list-inside">
+    <li>Ha på dig oömma kläder som tål eventuella färgstänk</li>
+    <li>Ta med en vit t-shirt eller tygkasse att färga (om du vill)</li>
+  </ul>
+
+  <p>För den som inte vill eller kan ta med ett eget plagg så finns det bitar med vitt bomullstyg att färga.</p>
+
+  <div>
+    <Image src={bomullstyg} width={420} alt="Bild på en liten tygbit något större än en smartphone" densities={[1.5, 2, 3]} class="rounded-md" />
+    <p class="text-xs mt-1 text-slate-400">Bild på tygbiten man kan prova att färga.</p>
+  </div>
+</section>
