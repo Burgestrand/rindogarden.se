@@ -1,10 +1,18 @@
 ---
 adults: ['Daniel B.', 'Jenny B.']
-title: 'Korvgrillning!'
+title: 'Reflexjakt & korvgrillning!'
 ---
+import { Image } from 'astro:assets'
+import poster from './2024-11-08/affisch.png';
+
 <section class="flex flex-col gap-4">
-  <p>På fredag är Rindögården öppen igen!</p>
-  <p>Vi startar grillen och bjuder på korv med bröd. Ta på dig varma kläder
-  så blir det en mysig kväll med grillning och mysigt häng, precis som en höst
-  ska vara!</p>
+  <p>Vi går på reflexjakt och bjuder på korv med bröd. Ta på dig varma
+  kläder så blir det en härlig kväll med grillning och mysigt häng, där vi
+  lyser upp höstmörkret tillsammans!</p>
+
+  <p>
+    <strong>Ta med egen ficklampa 🔦</strong>
+  </p>
+
+  <Image src={poster} width={420} densities={[1.5, 2, 3]} alt="BLINK!" class="rounded-md self-center" />
 </section>
