@@ -1,13 +1,12 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Headline from '@components/headings/Headline.astro'
-import Question from '@components/faq/Question.astro'
-import Section from '@components/faq/Section.astro'
+import Layout from "@/layouts/Layout.astro";
+import Headline from "@components/headings/Headline.astro";
+import Question from "@components/faq/Question.astro";
+import Section from "@components/faq/Section.astro";
 
-const title = "Vanliga frågor"
-import { email, workgroup } from "../common"
-import urls, { swish } from '@/urls'
-
+const title = "Vanliga frågor";
+import { email, workgroup } from "../common";
+import urls, { swish } from "@/urls";
 ---
 
 <Layout title={title}>
@@ -17,35 +16,47 @@ import urls, { swish } from '@/urls'
     </Headline>
   </header>
   <main class="col-[content] flex flex-col gap-4">
+    <p>
+      Ni som deltar på Rindögården behöver följa våra <a
+        href={urls.medlemsregler}>Medlemsregler</a
+      >.
+    </p>
+
     <Section title="Om Gården">
       <Question title="Vem driver Rindögården?">
         <div class="flex flex-col gap-2">
           <p>
-            Du! Varje fredagskväll bemannas av frivilliga vuxna. Utan frivilliga vuxna kan vi inte hålla öppet.
+            Du! Varje fredagskväll bemannas av frivilliga vuxna. Utan frivilliga
+            vuxna kan vi inte hålla öppet.
           </p>
           <p>
-            Utanför fredagskvällarna så är det en frivillig grupp föräldrar som sköter t.ex. inköp till kiosken, jaga frivilliga föräldrar, hemsidan, och kontakten med Rindöborna.
+            Utanför fredagskvällarna så är det en frivillig grupp föräldrar som
+            sköter t.ex. inköp till kiosken, jaga frivilliga föräldrar,
+            hemsidan, och kontakten med Rindöborna.
           </p>
           <p>
-            <a href={urls.external.rindoborna}>Föreningen Rindöborna</a> har hand om kontakt med kommunen, så att vi får lov att nyttja lokalen.
+            <a href={urls.external.rindoborna}>Föreningen Rindöborna</a> har hand
+            om kontakt med kommunen, så att vi får lov att nyttja lokalen.
           </p>
         </div>
       </Question>
       <Question title="Hur kontaktar jag Rindögården?">
         <div class="flex flex-col gap-2">
           <p>
-            Varje kväll har flera ansvariga vuxna på plats. Vill du nå dem, gå dit när det är öppet och prata med dem.
+            Varje kväll har flera ansvariga vuxna på plats. Vill du nå dem, gå
+            dit när det är öppet och prata med dem.
           </p>
           <p>
-            Vill du nå arbetsgruppen som sköter allt runtomkring så kontakta en av oss direkt.
+            Vill du nå arbetsgruppen som sköter allt runtomkring så kontakta en
+            av oss direkt.
           </p>
           <ul class="list-disc ml-5">
-            {workgroup.map(({ name }) => (
-              <li>{name}</li>
-            ))}
+            {workgroup.map(({ name }) => <li>{name}</li>)}
           </ul>
           <p>
-            Du kan också nå oss på <a href={urls.external.facebook}>Facebook Messenger</a>
+            Du kan också nå oss på <a href={urls.external.facebook}
+              >Facebook Messenger</a
+            >
             eller maila <a href=`mailto:${email}`>{email}</a>.
           </p>
         </div>
@@ -53,13 +64,17 @@ import urls, { swish } from '@/urls'
       <Question title="Vem betalar alltihop?">
         <div class="flex flex-col gap-2">
           <p>
-            Kommunen hyr ut lokalen till Rindöborna. Rindöborna söker i sin tur pengar från kommunen vilket täcker hyran och försäkring. Detta går jämnt ut.
+            Kommunen hyr ut lokalen till Rindöborna. Rindöborna söker i sin tur
+            pengar från kommunen vilket täcker hyran och försäkring. Detta går
+            jämnt ut.
           </p>
           <p>
-            Den enda andra inkomsten är försäljning i kiosken. Någon krona per godis och dricka går tillbaka till gården.
+            Den enda andra inkomsten är försäljning i kiosken. Någon krona per
+            godis och dricka går tillbaka till gården.
           </p>
           <p>
-            I övrigt är gården beroende av frivilliga vuxna som bidrar med engagemang, tid, och ibland även donationer.
+            I övrigt är gården beroende av frivilliga vuxna som bidrar med
+            engagemang, tid, och ibland även donationer.
           </p>
         </div>
       </Question>
@@ -67,17 +82,18 @@ import urls, { swish } from '@/urls'
     <Section title="På Gården">
       <Question title="Vem får vara med?">
         <p>
-          Barn i åk 4-6 är välkomna på Rindögården. Läs mer under <a href={urls.forVuxna}>För Vuxna</a>.
+          Barn i åk 4-6 är välkomna på Rindögården. Läs mer under <a
+            href={urls.forVuxna}>För Vuxna</a
+          >.
         </p>
       </Question>
       <Question title="Kostar det något att vara med?">
-        <p>
-          Nej, det är gratis att vara på Rindögården.
-        </p>
+        <p>Nej, det är gratis att vara på Rindögården.</p>
       </Question>
       <Question title="Hur betalar man i kiosken?">
         <p>
-          Via Swish till <a href={swish.kiosk}>Föreningen Rindöborna</a> eller kontant. Vi har begränsat med växel.
+          Via Swish till <a href={swish.kiosk}>Föreningen Rindöborna</a> eller kontant.
+          Vi har begränsat med växel.
         </p>
       </Question>
     </Section>
