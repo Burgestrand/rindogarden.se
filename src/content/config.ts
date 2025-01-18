@@ -3,7 +3,7 @@ import { z, defineCollection } from "astro:content";
 const events = defineCollection({
   type: "content",
   schema: z.object({
-    title: z.string().optional().default("(ingen titel)"),
+    title: z.string().optional().default("Rindögården"),
     adults: z.array(z.string()).default([]),
     summary: z.string().optional().default(""),
     group: z.enum(["åk 4-6"]).default("åk 4-6"),
