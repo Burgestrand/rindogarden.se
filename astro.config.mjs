@@ -1,19 +1,26 @@
-import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 import mdx from "@astrojs/mdx";
 
+import tailwindcss from "@tailwindcss/vite";
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.rindögården.se',
-  integrations: [tailwind({
-    applyBaseStyles: false /* Disable base styles, we use custom tailwind.css */
-  }), sitemap({
-    filter: (page) =>
-      page.match('/links') === null
-  }), mdx()],
+  site: "https://www.rindögården.se",
+
+  integrations: [
+    sitemap({
+      filter: (page) => page.match("/links") === null,
+    }),
+    mdx(),
+  ],
+
   redirects: {
-    '/kontakta-oss': '/engagera-dig#kontakta-oss',
-  }
+    "/kontakta-oss": "/engagera-dig#kontakta-oss",
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

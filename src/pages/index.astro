@@ -35,20 +35,6 @@ const upcomingEvents = eventsList.filter((event) => !events.isPast(event))
 		<section>
 			<H2 class="mb-4 text-4xl border-b-0 uppercase">På gång</H2>
 			<ol class="grid grid-cols-[auto_1fr] grid-flow-row">
-				{pastEvents.map(event => (
-					<li id={event.id} class="scroll-m-16 md:scroll-m-24 col-span-full group grid grid-cols-subgrid col-start-1 z-0 grayscale mb-2 text-xs">
-						<a href={event.url} class="grid grid-cols-subgrid col-span-full bg-white text-shark-950 no-underline relative">
-							<Time event={event} class="inline-flex flex-row gap-2 px-2 py-1 bg-shark-950 text-white uppercase font-bold items-center justify-center font-days-one">
-								<span>{event.date.day} {events.date.shortMonth(event)}</span>
-							</Time>
-
-							<article class="mx-2 font-sans">
-								<h1 class="py-2 font-days-one tracking-wider leading-none text-puerto-rico-600">{event.data.title}</h1>
-							</article>
-						</a>
-
-					</li>
-				))}
 				{upcomingEvents.map((event) => (
 					<li id={event.id} class="scroll-m-16 md:scroll-m-24 col-span-full group grid grid-cols-subgrid col-start-1 z-0 mb-4" data-uncertain={event.missingAdults > 0}>
 						<a href={event.url} class="grid grid-cols-subgrid col-span-full bg-white text-shark-950 no-underline relative">
@@ -65,10 +51,10 @@ const upcomingEvents = eventsList.filter((event) => !events.isPast(event))
 									</p>
 								)}
 
-								<div class="py-2 group-data-[uncertain]:grayscale flex flex-col">
+								<div class="py-2 group-data-uncertain:grayscale flex flex-col">
 									<header>
 										<h1 class="text-xl font-days-one tracking-wider leading-none text-puerto-rico-600">{event.data.title}</h1>
-										<Time event={event} class="text-sm font-bold group-data-[uncertain]:text-gray-300">
+										<Time event={event} class="text-sm font-bold group-data-uncertain:text-gray-300">
 											{events.date.custom(event, ({ date, locale }) => date.toLocaleString(locale, { weekday: 'long' }))}
 											kl. {events.time.tiny(event)}
 										</Time>
@@ -83,6 +69,25 @@ const upcomingEvents = eventsList.filter((event) => !events.isPast(event))
 					</li>
 				))}
 			</ol>
+		</section>
+		<section>
+			<H2 class="mb-4 text-4xl border-b-0 uppercase">Tidigare</H2>
+			<ol class="grid grid-cols-[auto_1fr] grid-flow-row">
+				{pastEvents.reverse().map(event => (
+					<li id={event.id} class="scroll-m-16 md:scroll-m-24 col-span-full group grid grid-cols-subgrid col-start-1 z-0 grayscale mb-2 text-xs">
+						<a href={event.url} class="grid grid-cols-subgrid col-span-full bg-white text-shark-950 no-underline relative">
+							<Time event={event} class="inline-flex flex-row gap-2 px-2 py-1 bg-shark-950 text-white uppercase font-bold items-center justify-center font-days-one">
+								<span>{event.date.day} {events.date.shortMonth(event)}</span>
+							</Time>
+
+							<article class="mx-2 font-sans">
+								<h1 class="py-2 font-days-one tracking-wider leading-none text-puerto-rico-600">{event.data.title}</h1>
+							</article>
+						</a>
+
+					</li>
+				))}
+				</ol>
 		</section>
 	</main>
 </Layout>

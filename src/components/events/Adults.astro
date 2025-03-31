@@ -11,7 +11,7 @@ const { event } = Astro.props
 {event.data.adults.length !== 0 && (
   <ul class="flex gap-x-1" class:list={Astro.props.class}>
     {event.data.adults.map((adult) => (
-      <li class="border-2 border-allports-700 bg-allports-600 tracking-wide text-white font-days-one px-1 rounded-sm">{adult}</li>
+      <li class="border-2 border-allports-700 bg-allports-600 tracking-wide text-white font-days-one px-1 rounded-xs">{adult}</li>
     ))}
   </ul>
 )}

@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme {
+  --font-*: initial;
+  --font-sans:
+    Open Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-days-one:
+    Days One, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --animate-grid-auto-height: grid-auto-height 300ms ease-in-out forwards;
+
+  --color-link: #e54fbc;
+  --color-link-visited: ;
+  --color-link-hover: ;
+  --color-link-focus: ;
+  --color-link-active: ;
+
+  --color-mulberry-50: #fdf2fb;
+  --color-mulberry-100: #fbe8f7;
+  --color-mulberry-200: #f9d1f1;
+  --color-mulberry-300: #f5ace5;
+  --color-mulberry-400: #ee78d2;
+  --color-mulberry-500: #e54fbc;
+  --color-mulberry-600: #d32e9e;
+  --color-mulberry-700: #b71f82;
+  --color-mulberry-800: #971d6b;
+  --color-mulberry-900: #7e1d5b;
+  --color-mulberry-950: #4d0a35;
+
+  --color-shark-50: #f6f7f7;
+  --color-shark-100: #e2e5e3;
+  --color-shark-200: #c5cac7;
+  --color-shark-300: #a0a8a5;
+  --color-shark-400: #7c8581;
+  --color-shark-500: #616b67;
+  --color-shark-600: #4d5452;
+  --color-shark-700: #3f4643;
+  --color-shark-800: #353a37;
+  --color-shark-900: #2f3231;
+  --color-shark-950: #1d201f;
+
+  --color-puerto-rico-50: #f2fbf8;
+  --color-puerto-rico-100: #d5f2e9;
+  --color-puerto-rico-200: #aae5d4;
+  --color-puerto-rico-300: #77d1ba;
+  --color-puerto-rico-400: #62bfaa;
+  --color-puerto-rico-500: #329a85;
+  --color-puerto-rico-600: #257c6b;
+  --color-puerto-rico-700: #226357;
+  --color-puerto-rico-800: #1f5048;
+  --color-puerto-rico-900: #1e433d;
+  --color-puerto-rico-950: #0c2724;
+
+  --color-allports-50: #eff9fc;
+  --color-allports-100: #d7eff6;
+  --color-allports-200: #b4dfed;
+  --color-allports-300: #81c7df;
+  --color-allports-400: #46a6ca;
+  --color-allports-500: #2a89b0;
+  --color-allports-600: #2978a0;
+  --color-allports-700: #255b79;
+  --color-allports-800: #264c64;
+  --color-allports-900: #244155;
+  --color-allports-950: #132939;
+
+  --color-persian-rose-50: #fef1fa;
+  --color-persian-rose-100: #fde6f6;
+  --color-persian-rose-200: #feccef;
+  --color-persian-rose-300: #fea3e1;
+  --color-persian-rose-400: #fc6acc;
+  --color-persian-rose-500: #f62dae;
+  --color-persian-rose-600: #e71b94;
+  --color-persian-rose-700: #c90d77;
+  --color-persian-rose-800: #a60e61;
+  --color-persian-rose-900: #8a1154;
+  --color-persian-rose-950: #55022f;
+
+  --color-mandy-50: #fff1f3;
+  --color-mandy-100: #fee5e8;
+  --color-mandy-200: #fccfd6;
+  --color-mandy-300: #faa7b4;
+  --color-mandy-400: #f7758d;
+  --color-mandy-500: #ee4266;
+  --color-mandy-600: #db2352;
+  --color-mandy-700: #b91745;
+  --color-mandy-800: #9b1640;
+  --color-mandy-900: #84173c;
+  --color-mandy-950: #4a071d;
+
+  --color-lightning-yellow-50: #fffeeb;
+  --color-lightning-yellow-100: #fffcc6;
+  --color-lightning-yellow-200: #fff888;
+  --color-lightning-yellow-300: #ffee49;
+  --color-lightning-yellow-400: #ffe020;
+  --color-lightning-yellow-500: #f2bb05;
+  --color-lightning-yellow-600: #dd9602;
+  --color-lightning-yellow-700: #b86c05;
+  --color-lightning-yellow-800: #95520b;
+  --color-lightning-yellow-900: #7a430d;
+  --color-lightning-yellow-950: #462402;
+
+  --color-accent-300: rgb(var(--color-accent-300));
+  --color-accent-700: rgb(var(--color-accent-700));
+  --color-accent: rgb(var(--color-accent));
+
+  @keyframes grid-auto-height {
+    0% {
+      grid-template-rows: 0fr;
+    }
+    100% {
+      grid-template-rows: 1fr;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility text-stroke {
+  --text-stroke: 2px;
+  --text-stroke-color: #000;
+  --text-stroke-inverted: calc(var(--text-stroke) * -1);
+
+  text-shadow:
+    var(--text-stroke-inverted) var(--text-stroke-inverted) 0
+      var(--text-stroke-color),
+    var(--text-stroke) var(--text-stroke-inverted) 0 var(--text-stroke-color),
+    var(--text-stroke-inverted) var(--text-stroke) 0 var(--text-stroke-color),
+    var(--text-stroke) var(--text-stroke) 0 var(--text-stroke-color);
+}
+@utility writing-horizontal {
+  writing-mode: horizontal-tb;
+}
+@utility writing-vertical {
+  writing-mode: vertical-rl;
+}
+
+@utility subgrid {
+  display: grid;
+  grid-column: full;
+  grid-template-columns: subgrid;
+}
+
+@utility btn {
+  @apply rounded-md block px-4 py-2 text-2xl text-center shadow-lg border-2 border-black/20 font-days-one tracking-wider;
+}
+
+@utility btn-primary {
+  @apply bg-allports-400;
+}
+
+@utility btn-disabled {
+  @apply bg-gray-300 text-gray-500 cursor-not-allowed;
+}
+
+@utility headline {
+  @apply overflow-hidden break-words;
+}
+
+@layer base {
+  strong {
+    @apply text-lightning-yellow-500;
+  }
+
+  p {
+    @apply text-sm;
+  }
+
+  details > summary.list-none::-webkit-details-marker,
+  details > summary.list-none::marker {
+    display: none;
+  }
+
+  .grid-standard {
+    --gap: clamp(1rem, 3vw, 3rem);
+    --full: minmax(var(--gap), 1fr);
+    --content: min(48rem, 100% - var(--gap) * 2);
+    --breakout: minmax(0, 5rem);
+
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--full)
+      [breakout-start] var(--breakout)
+      [content-start] var(--content) [content-end]
+      var(--breakout) [breakout-end]
+      var(--full) [full-end];
+  }
+
+  .grid-standard > * {
+    grid-column: content;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-days-one;
+  }
+
+  a:where([href]) {
+    @apply font-days-one text-link underline underline-offset-2;
+  }
+
+  a:where(.btn) {
+    @apply no-underline;
+  }
+}

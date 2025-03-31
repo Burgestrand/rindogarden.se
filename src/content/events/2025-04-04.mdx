@@ -1,3 +1,22 @@
 ---
-title: 'Påskpyssel!'
+title: 'Påskpyssel! 🐣'
+adults: ['Elin T.']
 ---
+import { Image } from 'astro:assets'
+import chicken from './2025-04-04/Chicken.png';
+import eggwarmer from './2025-04-04/Eggwarmer.png';
+
+<article class="flex flex-col gap-2">
+  <p>Denna gången har vi tillfälle att påskpyssla på gården! Vi har material till äggvärmare och påskkycklingar.</p>
+  <p>Ta med toarullar till äggvärmarna!</p>
+  <ul class="flex flex-row justify-center gap-2 flex-wrap">
+    <li class="flex-[1_0_20rem] flex flex-col items-center gap-2">
+      <p><a href="https://www.slojd-detaljer.com/se/inspiration/guider/aggvarmare-till-pask">Äggvärmare</a></p>
+      <a href={chicken.src}><Image src={chicken} width={420} densities={[1.5, 2, 3]} alt="chicken" class="rounded-md self-center" /></a>
+    </li>
+    <li class="flex-[1_0_20rem] flex flex-col items-center gap-2">
+      <p><a href="https://www.slojd-detaljer.com/se/inspiration/guider/stiliga-paskkycklingar">Stiliga påskkycklingar</a></p>
+      <a href={eggwarmer.src}><Image src={eggwarmer} width={420} densities={[1.5, 2, 3]} alt="eggwarmer" class="rounded-md self-center" /></a>
+    </li>
+  </ul>
+</article>
