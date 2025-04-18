@@ -3,4 +3,11 @@ title: 'Påskdisco! 🪩'
 time: '19:30:00'
 duration: 'PT1H30M'
 adults: ['Sandra B.']
+requiredAdults: 1
 ---
+import { Image } from 'astro:assets'
+import disco from './2025-04-18/disco.jpeg';
+
+<article class="flex flex-col gap-2 justify-center items-center">
+  <a href={disco.src}><Image src={disco} width={420} densities={[1.5, 2, 3]} alt="påskdisco" class="rounded-md self-center" /></a>
+</article>
