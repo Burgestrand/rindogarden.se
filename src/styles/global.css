@@ -133,6 +133,10 @@
   }
 }
 
+@utility subgrid {
+  @apply grid col-[full] grid-cols-[subgrid];
+}
+
 @utility text-stroke {
   --text-stroke: 2px;
   --text-stroke-color: #000;
@@ -144,18 +148,6 @@
     var(--text-stroke) var(--text-stroke-inverted) 0 var(--text-stroke-color),
     var(--text-stroke-inverted) var(--text-stroke) 0 var(--text-stroke-color),
     var(--text-stroke) var(--text-stroke) 0 var(--text-stroke-color);
-}
-@utility writing-horizontal {
-  writing-mode: horizontal-tb;
-}
-@utility writing-vertical {
-  writing-mode: vertical-rl;
-}
-
-@utility subgrid {
-  display: grid;
-  grid-column: full;
-  grid-template-columns: subgrid;
 }
 
 @utility btn {
