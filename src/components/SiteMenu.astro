@@ -6,8 +6,8 @@ import { Image } from 'astro:assets'
 import urls from '@/urls'
 ---
 <nav class="sticky top-0 subgrid z-50 backdrop-blur-md border-b-2 border-shark-900/60 shadow-xl bg-shark-950/90 text-white">
-  <details class="group list-none flex gap-4 sm:hidden col-[full]">
-    <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+  <details class="group list-none grid sm:hidden col-[full]">
+    <summary class="flex flex-grow cursor-pointer list-none items-center justify-between gap-4">
       <div class="inline-flex flex-col justify-center items-center px-4 text-sm font-days-one uppercase">
         <span>Rindögården</span>
       </div>
@@ -23,9 +23,9 @@ import urls from '@/urls'
       </div>
     </summary>
 
-    <div class="grid overflow-hidden animate-grid-auto-height">
-      <div class="min-h-0 transition-all px-4 pb-4">
-        <Links class="mt-2 items-stretch" />
+    <div class="grid overflow-hidden grid-rows-[0fr] group-open:animate-grid-auto-height">
+      <div class="min-h-0 transition-all px-4">
+        <Links class="mt-2 items-stretch mb-4" />
       </div>
     </div>
   </details>
