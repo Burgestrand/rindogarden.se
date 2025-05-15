@@ -41,19 +41,25 @@ const totalMinutesOpen = pastEvents.reduce((acc, event) => {
     <table class="w-full">
       <tbody class="text-lightning-yellow-500">
         <tr class="border-b border-shark-700">
-          <th class="text-left py-2 text-current">Antal kvällar</th>
-          <td class="text-right py-2 font-bold text-xl text-white">{eventsList.length}</td>
-        </tr>
-        <tr class="border-b border-shark-700">
           <th class="text-left py-2 text-current">Genomförda kvällar</th>
           <td class="text-right py-2 font-bold text-xl text-white">{totalPastEvents}</td>
         </tr>
         <tr class="border-b border-shark-700">
-          <th class="text-left py-2 text-current">Totalt antal vuxna</th>
+          <th class="text-left py-2 text-current">Antal kvällar</th>
+          <td class="text-right py-2 font-bold text-xl text-white">{eventsList.length}</td>
+        </tr>
+        <tr class="border-b border-shark-700">
+          <th class="text-left py-2 text-current">Antal vuxna</th>
+          <td class="text-right py-2 font-bold text-xl text-white">{[...sortedEventsByAdult.keys()].length}</td>
+        </tr>
+      </tbody>
+      <tbody class="text-allports-300">
+        <tr class="border-b border-shark-700">
+          <th class="text-left py-2 text-current">Närvarande vuxna</th>
           <td class="text-right py-2 font-bold text-xl text-white">{totalAdults}</td>
         </tr>
         <tr>
-          <th class="text-left py-2 text-current">Total tid öppet</th>
+          <th class="text-left py-2 text-current">Tid öppet</th>
           <td class="text-right py-2 font-bold text-xl text-white">{totalMinutesOpen.toFixed(0)} minuter</td>
         </tr>
       </tbody>
