@@ -62,7 +62,7 @@ const totalMinutesOpen = pastEvents.reduce((acc, event) => {
     <section class="flex flex-col gap-2">
       <H2>🎉 Hall of Fame</H2>
       <ol class="gap-2 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
-        {sortedEventsByAdult.entries().map(([adult, _events]) => (
+        {[...sortedEventsByAdult.keys()].map((adult) => (
           <li class="p-2 rounded-sm bg-allports-950">
             <h3>{adult}</h3>
           </li>
