@@ -1,0 +1,73 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Headline from "@components/headings/Headline.astro";
+import H2 from "@components/headings/H2.astro";
+
+const title = "Statistik"
+import * as events from '@/events'
+
+const eventsList = await events.list()
+
+// Adults!
+const totalAdults = eventsList.reduce((sum, event) => sum + event.data.adults.length, 0)
+const eventsByAdult = eventsList.reduce((map, event) =>
+  event.data.adults.reduce((map, adult) => {
+    const events = map.get(adult) || []
+    map.set(adult, [...events, event])
+    return map
+  }, map)
+, new Map())
+const sortedEventsByAdult = new Map(Array.from(eventsByAdult.entries()).sort(([_a1, e1], [_a2, e2]) => e2.length - e1.length))
+
+// Get unique past events (to display actual completed events)
+const pastEvents = eventsList.filter(events.isPast)
+const totalPastEvents = pastEvents.length
+
+// Total hours the facility has been open (for past events)
+const totalMinutesOpen = pastEvents.reduce((acc, event) => {
+  const hours = event.duration.hours || 0;
+  const minutes = event.duration.minutes || 0;
+  return acc + hours * 60 + minutes;
+}, 0);
+---
+
+<Layout title={title}>
+  <header class="col-[full]">
+    <Headline class="text-5xl my-4">
+      {title}
+    </Headline>
+  </header>
+  <main class="col-[content] flex flex-col gap-8">
+    <table class="w-full">
+      <tbody class="text-lightning-yellow-500">
+        <tr class="border-b border-shark-700">
+          <th class="text-left py-2 text-current">Antal kvällar</th>
+          <td class="text-right py-2 font-bold text-xl text-white">{eventsList.length}</td>
+        </tr>
+        <tr class="border-b border-shark-700">
+          <th class="text-left py-2 text-current">Genomförda kvällar</th>
+          <td class="text-right py-2 font-bold text-xl text-white">{totalPastEvents}</td>
+        </tr>
+        <tr class="border-b border-shark-700">
+          <th class="text-left py-2 text-current">Totalt antal vuxna</th>
+          <td class="text-right py-2 font-bold text-xl text-white">{totalAdults}</td>
+        </tr>
+        <tr>
+          <th class="text-left py-2 text-current">Total tid öppet</th>
+          <td class="text-right py-2 font-bold text-xl text-white">{totalMinutesOpen.toFixed(0)} minuter</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="flex flex-col gap-2">
+      <H2>🎉 Hall of Fame</H2>
+      <ol class="gap-2 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
+        {sortedEventsByAdult.entries().map(([adult, _events]) => (
+          <li class="p-2 rounded-sm bg-allports-950">
+            <h3>{adult}</h3>
+          </li>
+        ))}
+      </ol>
+    </section>
+  </main>
+</Layout>
