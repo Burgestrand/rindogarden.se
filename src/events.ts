@@ -1,4 +1,4 @@
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { Temporal } from "@js-temporal/polyfill";
 
@@ -13,25 +13,31 @@ export type Event = OriginalEvent & {
   duration: Temporal.Duration;
   missingAdults: number;
   url: string;
+} & {
+  slug: string;
+  render: () => ReturnType<typeof render>;
 };
 
 async function augment(event: OriginalEvent): Promise<Event> {
-  const date = Temporal.PlainDate.from(event.slug);
+  const date = Temporal.PlainDate.from(event.id);
   const time = Temporal.PlainTime.from(event.data.time);
   const duration = Temporal.Duration.from(event.data.duration);
   const requiredAdults = event.data.requiredAdults;
   const missingAdults = Math.max(requiredAdults - event.data.adults.length, 0);
-  const url = `/events/${event.slug}`;
+  const url = `/events/${event.id}`;
   const copy = Object.create(event);
   const id = `event:${date.toString()}`;
-  return Object.assign(copy, {
+  const newEvent = Object.assign(copy, {
     id,
+    slug: event.id,
     date,
     time,
     duration,
     url,
     missingAdults,
+    render: () => render(event),
   }) as Event;
+  return newEvent;
 }
 
 function compare(a: Event, b: Event) {
