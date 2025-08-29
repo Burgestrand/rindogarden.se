@@ -1,0 +1,45 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Headline from "@components/headings/Headline.astro";
+import H2 from "@components/headings/H2.astro";
+
+const title = "Önskelistan";
+---
+
+<Layout title={title}>
+  <header class="col-[full]">
+    <Headline class="text-4xl my-4">Önskelistan</Headline>
+  </header>
+  <main class="col-[content] flex flex-col gap-y-6">
+    <div class="flex flex-col gap-2">
+      <p>
+        Detta är en samling av saker som barnen på gården har önskat.
+      </p>
+    </div>
+
+    <section>
+      <H2 class="mb-2">Teman</H2>
+      <ul class="list-disc list-inside">
+        <li>Sova över</li>
+        <li>Pyjamasdag</li>
+        <li>Tacokväll</li>
+      </ul>
+    </section>
+
+    <section>
+      <H2 class="mb-2">Prylar</H2>
+      <ul class="list-disc list-inside">
+        <li>Discokula</li>
+        <li>Pysselstation för smycken</li>
+        <li>Högtalare på övervåningen</li>
+      </ul>
+    </section>
+
+    <section>
+      <H2 class="mb-2">Kiosken</H2>
+      <ul class="list-disc list-inside">
+        <li>Hockeypulver</li>
+      </ul>
+    </section>
+  </main>
+</Layout>
