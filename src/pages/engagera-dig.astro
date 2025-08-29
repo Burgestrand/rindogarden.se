@@ -1,5 +1,4 @@
 ---
-import type { Event } from "@/events";
 import Layout from "@/layouts/Layout.astro";
 import Headline from "@components/headings/Headline.astro";
 
@@ -8,17 +7,9 @@ import Section from "@components/faq/Section.astro";
 
 import { workgroup, email } from "../common";
 
-import * as eventsStore from "@/events";
 import urls from "@/urls";
 
 const title = "Engagera dig";
-const events = await eventsStore.list();
-
-const adultsToSentence = (event: Event) => {
-  const missing = Math.max(2 - event.data.adults.length, 0);
-  const missingAdults = Array.from({ length: missing }).fill("🙋");
-  return [...event.data.adults, ...missingAdults].join(", ");
-};
 ---
 
 <Layout title={title}>
@@ -35,6 +26,9 @@ const adultsToSentence = (event: Event) => {
       </p>
       <p>
         <strong>Vuxengruppen</strong> består av vuxna som hjälper till genom att vara på gården tillsammans med barnen när vi har öppet.
+      </p>
+      <p>
+        Vi kommunicerar med varandra via WhatsApp, eller genom att kika in på Rindögården när den är öppen.
       </p>
     </div>
 
@@ -128,37 +122,8 @@ const adultsToSentence = (event: Event) => {
       </Question>
       <Question title="Vilka kvällar saknar vuxna?">
         <p>
-          Här är en lista på kvällar som saknar vuxna. Om du kan ställa upp, hör
-          av dig!
+          Alla planerade fredagskvällar syns på <a href={urls.home}>startsidan</a>!
         </p>
-        <table class="w-full my-6 font-mono text-sm mb-12">
-          <thead>
-            <tr class="text-left border-b-2">
-              <th class="px-2">Datum & Tid</th>
-              <th class="px-2">Tema & Vuxna</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              events.map((event) =>
-                event.missingAdults ? (
-                  <tr
-                    class="data-uncertain:bg-mandy-800/20 even:bg-allports-800 bg-transparent"
-                    data-uncertain={event.missingAdults > 0}
-                  >
-                    <td class="p-2">
-                      {event.date} kl.&nbsp;{eventsStore.time.tiny(event)}
-                    </td>
-                    <td class="p-2 flex flex-col">
-                      <strong>{event.data.title}</strong>
-                      <span>{adultsToSentence(event)}</span>
-                    </td>
-                  </tr>
-                ) : null,
-              )
-            }
-          </tbody>
-        </table>
       </Question>
     </Section>
     <Section title="Inför kvällen">

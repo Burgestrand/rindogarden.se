@@ -5,6 +5,7 @@ import localLogo from '@images/logo/Logo-RG-Rectangle-Neg-RGB.png'
 import { Image } from 'astro:assets'
 
 import * as events from '@/events'
+import { default as urls } from '@/urls'
 
 import Time from '@components/events/Time.astro'
 import Adults from '@components/events/Adults.astro'
@@ -28,10 +29,12 @@ const upcomingEvents = eventsList.filter((event) => !events.isPast(event))
 	</header>
 
 	<main class="col-[content] flex flex-col mb-12 gap-8">
-  	<section class="rounded-md p-4 text-center bg-shark-950 border border-persian-rose-500">
-      <h1 class="text-4xl text-persian-rose-500">SOMMARLOV!</h1>
-      <p class="text-white">Rindögården har nu sommarlov! Vi syns i augusti!</p>
-  	</section>
+  	<!--
+   	<section class="rounded-md p-4 text-center bg-shark-950 border border-persian-rose-500">
+        <h1 class="text-4xl text-persian-rose-500">SOMMARLOV!</h1>
+        <p class="text-white">Rindögården har nu sommarlov! Vi syns i augusti!</p>
+   	</section>
+    -->
 		<section>
 			<H2 class="mb-4 text-4xl border-b-0 uppercase">På gång</H2>
 			<ol class="grid grid-cols-[auto_1fr] grid-flow-row">
@@ -41,20 +44,30 @@ const upcomingEvents = eventsList.filter((event) => !events.isPast(event))
             class="scroll-m-16 md:scroll-m-24 col-span-full group grid grid-cols-subgrid col-start-1 z-0 mb-4"
             {...(event.missingAdults > 0 ? { 'data-uncertain': true } : {})}
           >
+						{event.missingAdults > 0 && (
+              <header class="col-span-full">
+                <a href={urls.engage} class="underline text-inherit">
+     							<p class:list={[
+                    "font-bold flex justify-between text-white px-2 py-1 flex-grow leading-6",
+                    {
+                      "bg-gray-400": (event.missingAdults > 1),
+                      "bg-mandy-500": (event.missingAdults == 1)
+                    }
+  								]}>
+    								<strong class="text-inherit">Vi saknar {event.missingAdults} {event.missingAdults > 1 ? "vuxna" : "vuxen"}!</strong>
+    								<strong class="text-inherit underline">Engagera dig</strong>
+     							</p>
+                </a>
+              </header>
+						)}
+
 						<a href={event.url} class="grid grid-cols-subgrid col-span-full bg-white text-shark-950 no-underline relative">
 							<Time event={event} class="inline-flex flex-col px-2 py-1 bg-shark-950 text-white uppercase font-bold items-center justify-center font-days-one">
 								<span class="text-3xl">{event.date.day}</span>
 								<span class="text-normal">{events.date.shortMonth(event)}</span>
 							</Time>
 
-							<article class="mx-2 font-sans">
-								{event.missingAdults > 0 && (
-									<p class="font-bold flex justify-between bg-persian-rose-500 text-white -mx-2 px-2 py-1">
-										<strong class="text-inherit">Vi saknar {event.missingAdults} {event.missingAdults > 1 ? "vuxna" : "vuxen"}!</strong>
-										<strong class="text-inherit">Engagera dig</strong>
-									</p>
-								)}
-
+							<article class="px-2 font-sans relative">
 								<div class="py-2 group-data-uncertain:grayscale flex flex-col">
 									<header>
 										<h1 class="text-xl font-days-one tracking-wider leading-none text-puerto-rico-600">{event.data.title}</h1>
