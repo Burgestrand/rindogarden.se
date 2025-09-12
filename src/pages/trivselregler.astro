@@ -1,0 +1,82 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Headline from '@components/headings/Headline.astro'
+import H2 from '@components/headings/H2.astro'
+import Rule from '@components/trivselregler/Rule.astro'
+import urls from '@/urls'
+
+const title = "Trivselregler"
+---
+
+<Layout title={title}>
+  <header class="col-[full]">
+    <Headline class="text-4xl my-4">Trivselregler</Headline>
+  </header>
+
+  <main class="col-[content] flex flex-col gap-y-6">
+    <section class="flex flex-col gap-y-3">
+      <p>
+        Rindögården är vår gemensamma fritidsgård. För att alla ska trivas, både barn
+        och vuxna, behöver vi hjälpas åt.
+      </p>
+      <p class="font-semibold text-puerto-rico-300">
+        Har du önskemål om vad vi ska göra på Rindögården? Säg till de vuxna - kanske går det att ordna!
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <H2>Regler</H2>
+
+      <p class="font-semibold text-lightning-yellow-300">
+        Följer du inte reglerna kan du skickas hem eller bli portad från Rindögården.
+      </p>
+
+      <ul class="flex flex-col gap-2">
+        <Rule>
+          <span slot="rule">Hälsa på de vuxna när du kommer</span>
+          <span slot="reason">De är är på sin fritid för din skull. De får inte betalt, utan är bara här för att hjälpa till. Känner du inte igen dem? Fråga vad de heter!</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule">Skriv in dig på listan</span>
+          <span slot="reason">Så vi vet att du är här. Om du inte finns med på listan så skriver du in ditt namn, och sen säger du till dina föräldrar att gå in på Rindögårdens hemsida och fylla i formuläret på <a href={urls.forVuxna}>För vuxna</a>.</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule"><strong>Förskolan är förbjuden mark!</strong></span>
+          <span slot="reason">'nuff said.</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule">Var snäll, vårda språket</span>
+          <span slot="reason">Alla ska känna sig välkomna här. Rindögården ska vara en trygg plats för alla.</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule">Berätta för de vuxna om något går sönder</span>
+          <span slot="reason">Då kanske vi kan laga eller fixa det till nästa gång.</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule">Stör inte grannarna</span>
+          <span slot="reason">De ska tycka om Rindögården lika mycket som vi!</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule">Städa upp efter dig själv, och kompisarna</span>
+          <span slot="reason">De vuxna är här av egen vilja, och vill inte städa upp ditt skräp. Det ska vara lätt och kul att hjälpa till att hålla Rindögården öppen!</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule">Hjälp dina kompisar att följa reglerna</span>
+          <span slot="reason">Ibland glömmer man. Ibland händer det olyckor. Då måste vi hjälpas åt. Golare har polare på Rindögården.</span>
+        </Rule>
+
+        <Rule>
+          <span slot="rule">Säg hej då när du går hem</span>
+          <span slot="reason">Då blir de vuxna glada, konstigt nog! Det är ett bra sätt att visa att du tycker om Rindögården.</span>
+        </Rule>
+      </ul>
+    </section>
+  </main>
+</Layout>

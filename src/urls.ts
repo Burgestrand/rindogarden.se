@@ -43,14 +43,14 @@ export default {
   engage: "/engagera-dig",
   belastningsregistret: "/engagera-dig/belastningsregistret",
   checklist: "/engagera-dig/checklista",
-  medlemsregler: "/medlemsregler.pdf",
+  trivselregler: "/trivselregler",
 
   faq: "/faq",
 
   external: {
     rindoborna: "http://www.rindoborna.se",
     facebook: "https://www.facebook.com/rindogarden",
-    consentForm: "https://gnasweden.typeform.com/to/ap59Mwsl",
+    consentForm: "https://forms.gle/Y6LcNgLeaoAzRzgr6",
 
     polisen: {
       utdrag:
