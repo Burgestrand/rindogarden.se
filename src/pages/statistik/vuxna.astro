@@ -1,0 +1,154 @@
+---
+import { getCollection } from "astro:content";
+import * as events from "@/events";
+import Layout from "@/layouts/Layout.astro";
+import Headline from "@components/headings/Headline.astro";
+import { Temporal } from "@js-temporal/polyfill";
+
+const title = "Vuxna - Statistik";
+
+const adults = await getCollection("adults");
+const eventsList = await events.list();
+
+const now = Temporal.Now.plainDateISO();
+const adultsWithEvents = adults.map(adult => {
+  const check = adult.data.belastningsregister?.verified?.date;
+  const requested = adult.data.belastningsregister?.requested;
+  let checkStatus: "none" | "requested" | "old" | "valid" = "none";
+
+  if (check) {
+    // Convert JS Date to Temporal.PlainDate
+    const checkDate = Temporal.PlainDate.from({
+      year: check.getUTCFullYear(),
+      month: check.getUTCMonth() + 1,
+      day: check.getUTCDate()
+    });
+    const daysSinceCheck = now.since(checkDate).total({ unit: "day" });
+    // Check is old if > 1 year (365 days)
+    checkStatus = daysSinceCheck > 365 ? "old" : "valid";
+  } else if (requested) {
+    checkStatus = "requested";
+  }
+
+  const adultEvents = eventsList.filter(event =>
+    event.data.adults.some(a => a.id === adult.id)
+  );
+
+  const upcomingEvents = adultEvents.filter(event =>
+    Temporal.PlainDate.compare(event.date, now) >= 0
+  ).sort((a, b) => Temporal.PlainDate.compare(a.date, b.date));
+
+  const pastEvents = adultEvents.filter(event =>
+    Temporal.PlainDate.compare(event.date, now) < 0
+  ).sort((a, b) => Temporal.PlainDate.compare(b.date, a.date));
+
+  const nextEvent = upcomingEvents[0];
+
+  return {
+    id: adult.id,
+    checkStatus,
+    upcomingEvents,
+    pastEvents,
+    allEvents: adultEvents,
+    nextEvent,
+    hasUpcoming: upcomingEvents.length > 0,
+  };
+});
+
+const upcomingAdults = adultsWithEvents
+  .filter(a => a.hasUpcoming)
+  .sort((a, b) => Temporal.PlainDate.compare(a.nextEvent!.date, b.nextEvent!.date));
+
+// Group upcoming adults by next event date
+const upcomingByDate = new Map<string, typeof upcomingAdults>();
+upcomingAdults.forEach(adult => {
+  const dateKey = adult.nextEvent!.slug;
+  const group = upcomingByDate.get(dateKey) || [];
+  upcomingByDate.set(dateKey, [...group, adult]);
+});
+
+const pastAdults = adultsWithEvents
+  .filter(a => !a.hasUpcoming && a.pastEvents.length > 0)
+  .sort((a, b) => {
+    const lastEventA = a.pastEvents[0]!;
+    const lastEventB = b.pastEvents[0]!;
+    return Temporal.PlainDate.compare(lastEventB.date, lastEventA.date);
+  });
+---
+
+<Layout title={title}>
+  <header class="col-[full]">
+    <Headline class="text-5xl my-4">
+      {title}
+    </Headline>
+  </header>
+  <main class="col-[content]">
+    {upcomingAdults.length > 0 && (
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Kommande</h2>
+        <div class="flex flex-col gap-6">
+          {Array.from(upcomingByDate.entries()).map(([dateKey, adults]) => {
+            const event = adults[0]!.nextEvent!;
+            return (
+              <div>
+                <h3 class="text-lg font-semibold mb-2">{dateKey} - {event.data.title}</h3>
+                <ul class="flex flex-col gap-4">
+                  {adults.map(adult => (
+                    <li>
+                      <details>
+                        <summary class:list={[
+                          "font-bold cursor-pointer",
+                          adult.checkStatus === "valid" ? "text-green-400" :
+                          adult.checkStatus === "old" ? "text-green-800" :
+                          adult.checkStatus === "requested" ? "text-orange-500" :
+                          "text-red-500"
+                        ]}>{adult.id} ({adult.allEvents.length} events)</summary>
+                        <ul class="ml-4 mt-2 flex flex-col gap-1">
+                          {adult.upcomingEvents.map(event => (
+                            <li class="text-sm">{event.slug} - {event.data.title}</li>
+                          ))}
+                          {adult.pastEvents.length > 0 && (
+                            <li class="text-sm text-gray-500 mt-2">+ {adult.pastEvents.length} past events</li>
+                          )}
+                        </ul>
+                      </details>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    {pastAdults.length > 0 && (
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Gångna</h2>
+        <ul class="flex flex-col gap-4">
+          {pastAdults.map(adult => {
+            const lastEvent = adult.pastEvents[0]!;
+            return (
+              <li>
+                <details>
+                  <summary class:list={[
+                    "font-bold cursor-pointer",
+                    adult.checkStatus === "valid" ? "text-green-400" :
+                    adult.checkStatus === "old" ? "text-green-800" :
+                    adult.checkStatus === "requested" ? "text-orange-500" :
+                    "text-red-500"
+                  ]}>{adult.id} ({adult.allEvents.length} events, last: {lastEvent.slug})</summary>
+                  <ul class="ml-4 mt-2 flex flex-col gap-1">
+                    {adult.pastEvents.map(event => (
+                      <li class="text-sm">{event.slug} - {event.data.title}</li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+  </main>
+</Layout>

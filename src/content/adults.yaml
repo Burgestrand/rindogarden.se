@@ -1,0 +1,121 @@
+# yaml-language-server: $schema=./adults.schema.json
+---
+"Angelica B.":
+  belastningsregister:
+    requested: 2025-10-22
+"Anna-Lena M.W.":
+  belastningsregister:
+    verified:
+      date: 2024-08-24
+      by: Kim
+"Camilla M.H.":
+  belastningsregister:
+    verified:
+      date: 2024-10-24
+      by: Lena N.
+"Carl A.":
+  belastningsregister:
+    verified:
+      date: 2025-10-10
+      by: Kim
+"Cecilia dP.":
+  belastningsregister:
+    verified:
+      date: 2024-09-09
+      by: Kim
+"Daniel B.":
+  belastningsregister:
+    verified:
+      date: 2024-10-14
+      by: Kim
+"Elin T.":
+  belastningsregister:
+    verified:
+      date: 2024-08-24
+      by: Kim
+"Fredrik Y.":
+  belastningsregister:
+    verified:
+      date: 2024-10-25
+      by: Anna-Lena
+"Greta H.B.":
+  belastningsregister:
+    verified:
+      date: 2024-11-05
+      by: Kim
+"Ingrid M.":
+  belastningsregister:
+    requested: 2025-10-24
+"Jenny B.":
+  belastningsregister:
+    verified:
+      date: 2024-11-05
+      by: Kim
+"Jenny S.":
+  belastningsregister:
+    verified:
+      date: 2024-10-19
+      by: Anna-Lena
+"Jeppe S.": {}
+"Kim B.":
+  belastningsregister:
+    verified:
+      date: 2024-08-24
+      by: Lena N.
+"Kristina P.":
+  belastningsregister:
+    verified:
+      date: 2024-12-04
+      by: Kim
+"Lejva S.": {}
+"Lena N.":
+  belastningsregister:
+    verified:
+      date: 2024-08-24
+      by: Kim
+"Lina L.":
+  belastningsregister:
+    verified:
+      date: 2024-10-22
+      by: Kim
+"Linda H.":
+  belastningsregister:
+    verified:
+      date: 2024-10-18
+      by: Lena N.
+"Marie S.":
+  belastningsregister:
+    verified:
+      date: 2024-10-18
+      by: Lena N.
+"Mikael S.": {}
+"Mimmi G.G.":
+  belastningsregister:
+    verified:
+      date: 2024-10-14
+      by: Kim
+"Sandra B.":
+  belastningsregister:
+    verified:
+      date: 2025-02-07
+      by: Kim
+"Sanna K.":
+  belastningsregister:
+    verified:
+      date: 2024-08-24
+      by: Sandra
+"Terese H.":
+  belastningsregister:
+    verified:
+      date: 2025-01-27
+      by: Sandra
+"Theo B.":
+  belastningsregister:
+    verified:
+      date: 2024-10-18
+      by: Kim
+"Viveca E.":
+  belastningsregister:
+    verified:
+      date: 2024-10-18
+      by: Kim

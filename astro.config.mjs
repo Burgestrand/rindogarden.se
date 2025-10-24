@@ -11,7 +11,7 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => page.match("/links") === null,
+      filter: (page) => !/(\/links|\/statistik)/.test(page),
     }),
     mdx(),
   ],

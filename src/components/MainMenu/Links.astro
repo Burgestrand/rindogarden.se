@@ -4,12 +4,12 @@ type Link = {
   href: string;
   active?: (pathname: string) => boolean;
 };
-const links: Link[] = [
-  { text: "Hem", href: "/", active: (pathname) => pathname === "/" },
+const links = [
+  { text: "Hem", href: "/", active: (pathname: string) => pathname === "/" },
   { text: "Föräldrar", href: "/for-vuxna" },
   { text: "Vuxna", href: "/engagera-dig" },
-  { text: "Vanliga frågor", href: "/faq" },
-];
+  { text: "FAQ", href: "/faq" },
+].filter(Boolean) as Link[];
 
 const active = (link: Link) => {
   const pathname = new URL(Astro.request.url).pathname;

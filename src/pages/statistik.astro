@@ -12,8 +12,8 @@ const eventsList = await events.list()
 const totalAdults = eventsList.reduce((sum, event) => sum + event.data.adults.length, 0)
 const eventsByAdult = eventsList.reduce((map, event) =>
   event.data.adults.reduce((map, adult) => {
-    const events = map.get(adult) || []
-    map.set(adult, [...events, event])
+    const events = map.get(adult.id) || []
+    map.set(adult.id, [...events, event])
     return map
   }, map)
 , new Map())

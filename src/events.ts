@@ -51,6 +51,13 @@ export async function list() {
   return events;
 }
 
+export async function getEventsByAdult(adultId: string) {
+  const allEvents = await list();
+  return allEvents.filter((event) =>
+    event.data.adults.some((adult) => adult.id === adultId),
+  );
+}
+
 export const timestamp = {
   iso: (event: Event) =>
     event.date
