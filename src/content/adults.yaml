@@ -56,7 +56,11 @@
     verified:
       date: 2024-10-19
       by: Anna-Lena
-"Jeppe S.": {}
+"Jeppe S.":
+  belastningsregister:
+    verified:
+      date: 2025-10-30
+      by: Kim
 "Kim B.":
   belastningsregister:
     verified:
@@ -67,7 +71,11 @@
     verified:
       date: 2024-12-04
       by: Kim
-"Lejva S.": {}
+"Lejva S.":
+  belastningsregister:
+    verified:
+      date: 2025-10-22
+      by: Kim
 "Lena N.":
   belastningsregister:
     verified:
