@@ -54,6 +54,10 @@ const upcomingAdults = adultsWithEvents
   .filter(a => a.hasUpcoming)
   .sort((a, b) => Temporal.PlainDate.compare(a.nextEvent!.date, b.nextEvent!.date));
 
+const pastAdults = adultsWithEvents
+  .filter(a => !a.hasUpcoming && a.allEvents.length > 0)
+  .sort((a, b) => a.id.localeCompare(b.id));
+
 // Group upcoming adults by next event date
 const upcomingByDate = new Map<string, typeof upcomingAdults>();
 upcomingAdults.forEach(adult => {
@@ -103,6 +107,32 @@ upcomingAdults.forEach(adult => {
             );
           })}
         </div>
+      </section>
+    )}
+
+    {pastAdults.length > 0 && (
+      <section class="mb-8 opacity-60">
+        <h2 class="text-xl font-semibold mb-4">Tidigare</h2>
+        <ul class="flex flex-col gap-2">
+          {pastAdults.map(adult => (
+            <li>
+              <details>
+                <summary class:list={[
+                  "cursor-pointer",
+                  adult.checkStatus === "valid" ? "text-green-400" :
+                  adult.checkStatus === "old" ? "text-green-800" :
+                  adult.checkStatus === "requested" ? "text-orange-500" :
+                  "text-red-500"
+                ]}>{adult.id} ({adult.allEvents.length} events)</summary>
+                <ul class="ml-4 mt-2 flex flex-col gap-1">
+                  {adult.allEvents.sort((a, b) => Temporal.PlainDate.compare(b.date, a.date)).map(event => (
+                    <li class="text-sm">{event.slug} - {event.data.title}</li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          ))}
+        </ul>
       </section>
     )}
   </main>
