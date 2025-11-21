@@ -3,11 +3,14 @@
 "Angelica B.":
   belastningsregister:
     requested: 2025-10-22
+    verified:
+      date: 2025-10-24
+      by: Kim B.
 "Anna-Lena M.W.":
   belastningsregister:
     verified:
       date: 2024-08-24
-      by: Kim
+      by: Kim B.
 "Camilla M.H.":
   belastningsregister:
     verified:
@@ -17,22 +20,22 @@
   belastningsregister:
     verified:
       date: 2025-10-10
-      by: Kim
+      by: Kim B.
 "Cecilia dP.":
   belastningsregister:
     verified:
       date: 2024-09-09
-      by: Kim
+      by: Kim B.
 "Daniel B.":
   belastningsregister:
     verified:
       date: 2024-10-14
-      by: Kim
+      by: Kim B.
 "Elin T.":
   belastningsregister:
     verified:
       date: 2024-08-24
-      by: Kim
+      by: Kim B.
 "Fredrik Y.":
   belastningsregister:
     verified:
@@ -42,15 +45,18 @@
   belastningsregister:
     verified:
       date: 2024-11-05
-      by: Kim
+      by: Kim B.
 "Ingrid M.":
   belastningsregister:
     requested: 2025-10-24
+    verified:
+      date: 2024-10-24
+      by: Sandra B.
 "Jenny B.":
   belastningsregister:
     verified:
       date: 2024-11-05
-      by: Kim
+      by: Kim B.
 "Jenny S.":
   belastningsregister:
     verified:
@@ -60,7 +66,7 @@
   belastningsregister:
     verified:
       date: 2025-10-30
-      by: Kim
+      by: Kim B.
 "Kim B.":
   belastningsregister:
     verified:
@@ -70,22 +76,22 @@
   belastningsregister:
     verified:
       date: 2024-12-04
-      by: Kim
+      by: Kim B.
 "Lejva S.":
   belastningsregister:
     verified:
       date: 2025-10-22
-      by: Kim
+      by: Kim B.
 "Lena N.":
   belastningsregister:
     verified:
       date: 2024-08-24
-      by: Kim
+      by: Kim B.
 "Lina L.":
   belastningsregister:
     verified:
       date: 2024-10-22
-      by: Kim
+      by: Kim B.
 "Linda H.":
   belastningsregister:
     verified:
@@ -105,12 +111,12 @@
   belastningsregister:
     verified:
       date: 2024-10-14
-      by: Kim
+      by: Kim B.
 "Sandra B.":
   belastningsregister:
     verified:
       date: 2024-08-24
-      by: Kim
+      by: Kim B.
 "Sanna K.":
   belastningsregister:
     verified:
@@ -125,9 +131,9 @@
   belastningsregister:
     verified:
       date: 2024-10-18
-      by: Kim
+      by: Kim B.
 "Viveca E.":
   belastningsregister:
     verified:
       date: 2024-10-18
-      by: Kim
+      by: Kim B.
